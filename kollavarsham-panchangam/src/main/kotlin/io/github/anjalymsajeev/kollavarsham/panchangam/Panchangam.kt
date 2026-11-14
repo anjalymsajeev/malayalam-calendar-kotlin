@@ -7,6 +7,7 @@ import io.github.anjalymsajeev.kollavarsham.astronomy.Sun
 import io.github.anjalymsajeev.kollavarsham.astronomy.SunriseSunset
 import io.github.anjalymsajeev.kollavarsham.core.GeoLocation
 import io.github.anjalymsajeev.kollavarsham.core.KollavarshamCalendar
+import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -123,11 +124,14 @@ public class Panchangam private constructor(
         span: (Instant) -> Span<T>,
     ): List<Span<T>> {
         val result = mutableListOf<Span<T>>()
-        var cursor = from
-        while (cursor.isBefore(until)) {
-            val s = span(cursor)
-            result += s
-            cursor = s.end
+        var current = span(from)
+        result += current
+        while (current.end.isBefore(until)) {
+            // Probe just past the end, so millisecond rounding can never return the same span,
+            // then join the spans exactly (their boundaries agree to within milliseconds).
+            val next = span(current.end.plusSeconds(1))
+            current = if (Duration.between(current.end, next.start).abs() < Duration.ofSeconds(1)) next.copy(start = current.end) else next
+            result += current
         }
         return result
     }
