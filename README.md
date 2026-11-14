@@ -53,6 +53,13 @@ The expected dates above come from the Sprint 0 accuracy spike. They are not yet
 | [docs/adr/](docs/adr/) | Architecture decision records |
 | [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) | |
 
+## Contributors
+
+- [@anjalymsajeev](https://github.com/anjalymsajeev): project owner and maintainer
+- Claude (Anthropic): co-author
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 [Apache License 2.0](LICENSE)
