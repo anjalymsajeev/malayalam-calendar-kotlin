@@ -7,8 +7,8 @@
 | 2 | Calendar conversion engine and reference dataset | Done (evidence shortfall carried over) |
 | 3 | Localisation and developer experience | Done |
 | 4 | Panchangam foundation | Done |
-| 5 | Festival and observance engine | **Done, pending review** (report below) |
-| 6 | Android SDK and sample app | Planned |
+| 5 | Festival and observance engine | Done |
+| 6 | Android SDK and sample app | **Done, pending review** (report below) |
 | 7 | Production release (1.0.0) | Planned |
 
 Rule: no sprint starts while the previous sprint has a failing acceptance criterion or an unanswered blocking question.
@@ -288,3 +288,33 @@ The build is green: **84 tests**, ktlint, `apiCheck`.
 - `kollavarsham-android` with an optional Compose month grid and date picker.
 - A sample app with a monthly calendar, daily details and festivals.
 - **Blocker:** Google's Maven repository (Android Gradle Plugin, AndroidX, Compose) is unreachable from this environment. It would need to be allowed in the environment's network settings, or the Android build can only be verified in CI on GitHub.
+
+---
+
+## Sprint 6 completion report
+
+**Objective:** Android integration, an optional Compose calendar component, and a working sample app.
+
+| ID | Story | Acceptance criteria | Result |
+|---|---|---|---|
+| S6-1 | Android integration | Android library consuming the SDK; no business logic in Composables | **Met.** `kollavarsham-android` (minSdk 21); logic lives in `MonthGrid` (plain Kotlin, unit-tested) |
+| S6-2 | Compose calendar component | Month grid with Malayalam dates, selection, markers, accessibility | **Met.** `KollavarshamMonthView` |
+| S6-3 | Sample monthly calendar and date selection | Navigate months; select a day | **Met** |
+| S6-4 | Daily details | Malayalam date, nakshatra, tithi, sunrise/sunset, festivals | **Met.** `CalendarPresenter` (unit-tested), Malayalam/English |
+| S6-5 | Offline demonstration | Works without network | **Met.** The APK requests no INTERNET permission (verified with aapt) |
+| S6-6 | Exit: working sample app | Debug and minified release APKs build | **Met.** Debug 10 MB; release (R8) 1.4 MB, with the SDK data resource present |
+
+The full build is green: JVM tests, Android unit tests, Android lint, ktlint and `apiCheck`.
+
+**Scope note:** Compose UI tests (Robolectric) were left out at the owner's request; they were also blocked by repeated download rate limits. UI behaviour has not been exercised by automated tests, and the app hasn't been run on a device or emulator in this environment. Install the APK to check it.
+
+**Found and fixed:** the SDK's relative resource path would have broken under R8 package renaming in minified apps.
+
+### Next: Sprint 7 (production release)
+
+- API stability review.
+- Performance check.
+- Dependency analysis.
+- Documentation pass.
+- Release notes.
+- The first Maven Central release (after the owner's one-time setup).

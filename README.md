@@ -2,7 +2,7 @@
 
 A Kotlin SDK for the Malayalam (Kollavarsham) calendar. It converts between Gregorian and Malayalam dates following the Kerala solar-month rule, works offline, is thread-safe, and keeps Android out of the core.
 
-> **Status: Sprint 5 (festival and observance engine) complete. Not yet released (`0.1.0-alpha01`).**
+> **Status: Sprint 6 (Android SDK and sample app) complete. Not yet released (`0.1.0-alpha01`).**
 > Real conversion works for 1900–2100. It reproduces all 21 cited month starts in the reference dataset;
 > see [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) for what that evidence does and doesn't prove.
 
@@ -49,6 +49,8 @@ b.cutoffMargin                                                             // ~ 
 | `kollavarsham-locale` | Names, ISO 15919 transliteration, Malayalam numerals, date formatting |
 | `kollavarsham-panchangam` | Nakshatra, tithi, sunrise/sunset for a location; daily panchangam |
 | `kollavarsham-festivals` | Kerala festivals as rules (Onam, Vishu, Sivaratri, …); pluggable observance sources |
+| `kollavarsham-android` | Optional Jetpack Compose month calendar (`KollavarshamMonthView`) and `MonthGrid` model |
+| `sample-app` | Demo Android app: monthly calendar, daily details, festivals; offline (not published) |
 
 ## Installation
 
@@ -61,6 +63,7 @@ dependencies {
     implementation("io.github.anjalymsajeev:kollavarsham-locale:0.1.0-alpha01")     // names, formatting
     implementation("io.github.anjalymsajeev:kollavarsham-panchangam:0.1.0-alpha01") // nakshatra, tithi
     implementation("io.github.anjalymsajeev:kollavarsham-festivals:0.1.0-alpha01")  // festivals
+    implementation("io.github.anjalymsajeev:kollavarsham-android:0.1.0-alpha01")    // Compose month view
 }
 ```
 

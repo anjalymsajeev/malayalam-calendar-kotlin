@@ -5,6 +5,13 @@ All notable changes are documented here. The project follows [Semantic Versionin
 
 ## [Unreleased]
 
+### Added (Sprint 6: Android SDK and sample app)
+- `kollavarsham-android` (AAR, minSdk 21): `MonthGrid` (plain Kotlin) and the `KollavarshamMonthView` Composable; published to Maven Central with the other modules.
+- `sample-app`: monthly calendar, date selection, daily details (Malayalam date, nakshatra, tithi, sunrise/sunset, festivals), Malayalam/English, offline (no INTERNET permission).
+
+### Fixed
+- The bundled almanac-corrections file is now loaded by absolute path, so minified (R8) Android apps can't break the lookup by renaming packages.
+
 ### Added (release engineering)
 - Maven Central publishing (Central Portal) for the five JVM modules: signed jars, sources and Dokka javadoc jars, full POMs.
 - `release.yml` workflow (tag `v*`), and `RELEASING.md`.

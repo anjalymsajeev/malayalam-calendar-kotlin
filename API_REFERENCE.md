@@ -5,7 +5,7 @@ Version: `0.1.0-alpha01` (unreleased) · Package root: `io.github.anjalymsajeev.
 The authoritative list of public declarations is in `*/api/*.api`, which CI checks on every build. This page
 explains the API with examples.
 
-> **Sprint 5 status:** conversion, localisation, panchangam and the festival engine are complete. For a task-oriented introduction, see [docs/guide.md](docs/guide.md).
+> **Sprint 6 status:** all modules are complete, including the optional Android Compose components. For a task-oriented introduction, see [docs/guide.md](docs/guide.md).
 
 ## Artifacts
 
@@ -15,6 +15,7 @@ explains the API with examples.
 | `io.github.anjalymsajeev:kollavarsham-locale` | Names, transliteration, numerals, formatting |
 | `io.github.anjalymsajeev:kollavarsham-panchangam` | Nakshatra, tithi, sunrise/sunset, daily panchangam |
 | `io.github.anjalymsajeev:kollavarsham-festivals` | Festival rules, Kerala festivals, observance providers |
+| `io.github.anjalymsajeev:kollavarsham-android` | Compose month calendar and `MonthGrid` (Android library, minSdk 21) |
 | `io.github.anjalymsajeev:kollavarsham-astronomy` | Astronomy, opt-in (`@KollavarshamAstronomyApi`), used by core |
 
 The artifacts are not yet published.
@@ -337,3 +338,35 @@ provider.observancesOn(LocalDate.of(2026, 8, 26))
 ```
 
 The CSV header is `date,id,english_name,malayalam_name,category`. `ObservanceCategory` is `HINDU`, `CHRISTIAN`, `ISLAMIC`, `CIVIC`, `TEMPLE` or `CUSTOM`.
+
+## kollavarsham-android
+
+An Android library (AAR) with minSdk 21. The API uses `java.time`, so apps below API 26 must enable core library desugaring.
+
+### `MonthGrid`
+
+Plain Kotlin with no Android types: the weeks of a month, each cell holding both dates.
+
+```kotlin
+val grid = MonthGrid.ofGregorianMonth(YearMonth.of(2026, 11))                        // Sunday-first by default
+val ml = MonthGrid.ofMalayalamMonth(1202, MalayalamMonth.Vrischikam, firstDayOfWeek = DayOfWeek.MONDAY)
+grid.weeks            // List<List<Cell>>, 7 cells per row
+grid.cells            // all cells
+grid.malayalamMonths  // [(1202, Thulam), (1202, Vrischikam)]
+cell.date; cell.malayalamDate; cell.inMonth
+```
+
+### `KollavarshamMonthView`
+
+```kotlin
+var selected by remember { mutableStateOf(LocalDate.now()) }
+KollavarshamMonthView(
+    grid = MonthGrid.ofGregorianMonth(YearMonth.from(selected)),
+    selectedDate = selected,
+    onDateSelected = { selected = it },
+    locale = CalendarLocale.MALAYALAM,              // weekday names
+    markedDates = festivalDates,                    // dots, e.g. from ObservanceProvider
+)
+```
+
+The view only renders the grid you give it; it holds no calendar logic. Each cell has a content description such as `"2026-11-14, 1202 തുലാം 28"` for accessibility.

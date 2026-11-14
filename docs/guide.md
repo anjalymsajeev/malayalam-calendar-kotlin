@@ -163,6 +163,33 @@ provider.observancesOn(LocalDate.of(2026, 8, 26))
 
 Islamic festivals aren't computed, because their dates follow moon sighting. Supply announced dates through `DatedObservances`.
 
-## 10. A complete example
+## 10. Android: Compose month calendar
 
-[`samples/jvm-consumer`](../samples/jvm-consumer) is a standalone project that consumes the published artifacts. It prints a formatted date and the months of a year.
+Add `io.github.anjalymsajeev:kollavarsham-android`. For minSdk below 26, also enable desugaring:
+
+```kotlin
+android { compileOptions { isCoreLibraryDesugaringEnabled = true } }
+dependencies { coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3") }
+```
+
+```kotlin
+@Composable
+fun MyCalendar(festivals: ObservanceProvider) {
+    var selected by rememberSaveable { mutableStateOf(LocalDate.now()) }
+    val month = YearMonth.from(selected)
+    val grid = remember(month) { MonthGrid.ofGregorianMonth(month) }
+    val dots = remember(month) { festivals.observances(month.atDay(1)..month.atEndOfMonth()).map { it.date }.toSet() }
+    KollavarshamMonthView(grid, selected, onDateSelected = { selected = it }, markedDates = dots)
+}
+```
+
+Keep calculations outside Composables, as the sample app's `CalendarPresenter` does.
+
+## 11. A complete example
+
+- [`samples/jvm-consumer`](../samples/jvm-consumer): a standalone JVM project that consumes the published artifacts.
+- [`sample-app`](../sample-app): the Android demo. It has a monthly calendar with Malayalam dates, a Malayalam/English toggle, daily nakshatra, tithi, sunrise/sunset and festivals, and a note on borderline months. It requests no internet permission.
+
+```bash
+./gradlew :sample-app:assembleDebug
+```
