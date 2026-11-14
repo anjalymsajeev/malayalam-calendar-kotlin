@@ -28,8 +28,9 @@ class NamesTest {
     }
 
     @Test fun `Malayalam names are NFC, Malayalam-script only, and use atomic chillu letters`() {
-        val names = MalayalamMonth.entries.map { it.displayName(CalendarLocale.MALAYALAM) } +
-            MalayalamWeekday.entries.map { it.displayName(CalendarLocale.MALAYALAM) }
+        val names =
+            MalayalamMonth.entries.map { it.displayName(CalendarLocale.MALAYALAM) } +
+                MalayalamWeekday.entries.map { it.displayName(CalendarLocale.MALAYALAM) }
         names.forEach { name ->
             assertTrue(Normalizer.isNormalized(name, Normalizer.Form.NFC), name)
             assertTrue(name.all { it in 'ഀ'..'ൿ' }, "non-Malayalam character in $name")
