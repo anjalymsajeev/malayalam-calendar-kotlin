@@ -46,6 +46,24 @@ public final class io/github/anjalymsajeev/kollavarsham/panchangam/NakshatraKt {
 	public static synthetic fun displayName$default (Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;ILjava/lang/Object;)Ljava/lang/String;
 }
 
+public final class io/github/anjalymsajeev/kollavarsham/panchangam/NakshatraOccurrence {
+	public fun <init> (Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;Lio/github/anjalymsajeev/kollavarsham/panchangam/Span;Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;Ljava/util/List;)V
+	public final fun component1 ()Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;
+	public final fun component2 ()Lio/github/anjalymsajeev/kollavarsham/panchangam/Span;
+	public final fun component3 ()Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;Lio/github/anjalymsajeev/kollavarsham/panchangam/Span;Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;Ljava/util/List;)Lio/github/anjalymsajeev/kollavarsham/panchangam/NakshatraOccurrence;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/panchangam/NakshatraOccurrence;Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;Lio/github/anjalymsajeev/kollavarsham/panchangam/Span;Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;Ljava/util/List;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/panchangam/NakshatraOccurrence;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvention ()Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;
+	public final fun getNakshatra ()Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;
+	public final fun getObservanceDate ()Ljava/time/LocalDate;
+	public final fun getObservanceDates ()Ljava/util/List;
+	public final fun getSpan ()Lio/github/anjalymsajeev/kollavarsham/panchangam/Span;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public abstract interface class io/github/anjalymsajeev/kollavarsham/panchangam/NakshatraProvider {
 	public abstract fun nakshatraAt (Ljava/time/Instant;)Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;
 	public abstract fun nakshatraSpan (Ljava/time/Instant;)Lio/github/anjalymsajeev/kollavarsham/panchangam/Span;
@@ -65,6 +83,8 @@ public final class io/github/anjalymsajeev/kollavarsham/panchangam/Panchangam : 
 	public final fun day (Ljava/time/LocalDate;)Lio/github/anjalymsajeev/kollavarsham/panchangam/PanchangamDay;
 	public final fun getLocation ()Lio/github/anjalymsajeev/kollavarsham/panchangam/PanchangamLocation;
 	public fun nakshatraAt (Ljava/time/Instant;)Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;
+	public final fun nakshatraOccurrences (Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;Ljava/time/LocalDate;Ljava/time/LocalDate;Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;)Ljava/util/List;
+	public static synthetic fun nakshatraOccurrences$default (Lio/github/anjalymsajeev/kollavarsham/panchangam/Panchangam;Lio/github/anjalymsajeev/kollavarsham/panchangam/Nakshatra;Ljava/time/LocalDate;Ljava/time/LocalDate;Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;ILjava/lang/Object;)Ljava/util/List;
 	public fun nakshatraSpan (Ljava/time/Instant;)Lio/github/anjalymsajeev/kollavarsham/panchangam/Span;
 	public fun sunrise (Ljava/time/LocalDate;)Ljava/time/Instant;
 	public fun sunset (Ljava/time/LocalDate;)Ljava/time/Instant;
@@ -136,6 +156,15 @@ public final class io/github/anjalymsajeev/kollavarsham/panchangam/Span {
 	public final fun getValue ()Ljava/lang/Object;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention : java/lang/Enum {
+	public static final field SIX_NAZHIKA Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;
+	public static final field SUNRISE Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;
+	public final fun getCheckpointAfterSunrise ()Ljava/time/Duration;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/panchangam/StarDayConvention;
 }
 
 public abstract interface class io/github/anjalymsajeev/kollavarsham/panchangam/SunTimesProvider {

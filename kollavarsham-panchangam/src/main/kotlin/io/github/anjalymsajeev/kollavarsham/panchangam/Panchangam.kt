@@ -118,6 +118,61 @@ public class Panchangam private constructor(
         )
     }
 
+    /**
+     * Every period in which the Moon is in [nakshatra] that overlaps the civil days [from]..[to]
+     * (inclusive, in this panchangam's zone), in order, with the observance day(s) of each under
+     * [convention]. Occurrences are found by walking actual nakshatra spans, never by assuming a
+     * fixed 27-day cycle. Spans that start before [from] or end after [to] are included if they overlap.
+     *
+     * ```kotlin
+     * Panchangam.create().nakshatraOccurrences(Nakshatra.Atham, LocalDate.of(2027, 1, 1), LocalDate.of(2027, 12, 31))
+     *     .forEach { println("${it.observanceDate}  ${it.span.start} .. ${it.span.end}") }
+     * ```
+     *
+     * @throws IllegalArgumentException if [to] is before [from].
+     */
+    public fun nakshatraOccurrences(
+        nakshatra: Nakshatra,
+        from: LocalDate,
+        to: LocalDate,
+        convention: StarDayConvention = StarDayConvention.SUNRISE,
+    ): List<NakshatraOccurrence> {
+        require(!to.isBefore(from)) { "to ($to) must not be before from ($from)" }
+        val rangeStart = from.atStartOfDay(location.zone).toInstant()
+        val rangeEnd = to.plusDays(1).atStartOfDay(location.zone).toInstant()
+        val result = mutableListOf<NakshatraOccurrence>()
+        var span = nakshatraSpan(rangeStart)
+        while (span.start.isBefore(rangeEnd)) {
+            if (span.value == nakshatra) {
+                if (span.end.isAfter(rangeStart)) {
+                    result += NakshatraOccurrence(nakshatra, span, convention, observanceDates(span, convention))
+                }
+                // The same nakshatra returns about 27.3 days after it began; jump most of the way, then walk.
+                span = nakshatraSpan(span.end.plus(Duration.ofDays(OCCURRENCE_JUMP_DAYS)))
+            } else {
+                // Probe just past the end so millisecond rounding cannot return the same span again.
+                span = nakshatraSpan(span.end.plusSeconds(1))
+            }
+        }
+        return result
+    }
+
+    private fun observanceDates(
+        span: Span<Nakshatra>,
+        convention: StarDayConvention,
+    ): List<LocalDate> {
+        val firstDay =
+            span.start
+                .atZone(location.zone)
+                .toLocalDate()
+                .minusDays(1)
+        val lastDay = span.end.atZone(location.zone).toLocalDate()
+        return generateSequence(firstDay) { it.plusDays(1) }
+            .takeWhile { !it.isAfter(lastDay) }
+            .filter { day -> sunrise(day)?.plus(convention.checkpointAfterSunrise)?.let { it in span } ?: false }
+            .toList()
+    }
+
     private fun <T> spansBetween(
         from: Instant,
         until: Instant,
@@ -210,6 +265,10 @@ public class Panchangam private constructor(
         // whatever probe instant it was searched from.
         private const val ANGLE_TOLERANCE = 1e-8
         private const val MAX_ITERATIONS = 30
+
+        // A nakshatra recurs after one sidereal month (~27.3 days) from its start; a span lasts at
+        // most ~27 h, so 25 days after the end is always before the next occurrence begins.
+        private const val OCCURRENCE_JUMP_DAYS = 25L
 
         private val default: Panchangam by lazy { Panchangam(PanchangamLocation.Default) }
 
