@@ -1,0 +1,13 @@
+public final class io/github/anjalymsajeev/kollavarsham/locale/CalendarLocale : java/lang/Enum {
+	public static final field ENGLISH Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;
+	public static final field MALAYALAM Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/NamesKt {
+	public static final fun displayName (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;)Ljava/lang/String;
+	public static final fun displayName (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;)Ljava/lang/String;
+}
+
