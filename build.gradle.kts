@@ -59,9 +59,6 @@ subprojects {
                 includes.from(project.file("Module.md").takeIf { it.exists() } ?: emptyList<File>())
             }
         }
-
-        // Maven Central (Central Portal). Uploads are signed when a key is supplied (CI release
-        // workflow); local publishToMavenLocal builds work unsigned. See RELEASING.md.
         extensions.configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
             configure(
                 com.vanniktech.maven.publish.KotlinJvm(
@@ -69,6 +66,14 @@ subprojects {
                     sourcesJar = true,
                 ),
             )
+        }
+    }
+
+    // Shared Maven Central settings for every published module (JVM and Android).
+    pluginManager.withPlugin("com.vanniktech.maven.publish") {
+        // Maven Central (Central Portal). Uploads are signed when a key is supplied (CI release
+        // workflow); local publishToMavenLocal builds work unsigned. See RELEASING.md.
+        extensions.configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
             // automaticRelease = false: each upload waits in the Central Portal for a human to
             // inspect it and press Publish. Releases to Maven Central cannot be deleted.
             publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ktlint)
-    `maven-publish`
+    alias(libs.plugins.maven.publish)
 }
 
 android {
@@ -21,14 +21,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
-    testOptions {
-        unitTests.isIncludeAndroidResources = true
-    }
-
-    publishing {
-        singleVariant("release") { withSourcesJar() }
-    }
 }
 
 kotlin {
@@ -41,6 +33,16 @@ kotlin {
 
 ktlint {
     version.set(libs.versions.ktlint.get())
+}
+
+mavenPublishing {
+    configure(
+        com.vanniktech.maven.publish.AndroidSingleVariantLibrary(
+            variant = "release",
+            sourcesJar = true,
+            publishJavadocJar = false,
+        ),
+    )
 }
 
 dependencies {
@@ -57,20 +59,4 @@ dependencies {
 
     testImplementation(libs.junit4)
     testImplementation(kotlin("test"))
-    testImplementation(libs.robolectric)
-    testImplementation(libs.androidx.test.ext.junit)
-    testImplementation(platform(libs.compose.bom))
-    testImplementation(libs.compose.ui.test.junit4)
-    debugImplementation(libs.compose.ui.test.manifest)
-}
-
-afterEvaluate {
-    publishing {
-        publications.create<MavenPublication>("release") {
-            from(components["release"])
-            groupId = property("GROUP") as String
-            artifactId = "kollavarsham-android"
-            version = property("VERSION_NAME") as String
-        }
-    }
 }

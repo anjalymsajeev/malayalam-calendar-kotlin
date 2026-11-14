@@ -14,8 +14,20 @@ class MonthGridTest {
     fun gregorianMonthCoversWholeWeeksWithBothDates() {
         val grid = MonthGrid.ofGregorianMonth(YearMonth.of(2026, 11))
         assertTrue(grid.weeks.all { it.size == 7 })
-        assertEquals(DayOfWeek.SUNDAY, grid.weeks.first().first().date.dayOfWeek)
-        assertEquals(DayOfWeek.SATURDAY, grid.weeks.last().last().date.dayOfWeek)
+        assertEquals(
+            DayOfWeek.SUNDAY,
+            grid.weeks
+                .first()
+                .first()
+                .date.dayOfWeek,
+        )
+        assertEquals(
+            DayOfWeek.SATURDAY,
+            grid.weeks
+                .last()
+                .last()
+                .date.dayOfWeek,
+        )
         assertEquals(30, grid.cells.count { it.inMonth })
         // 1 November 2026 is a Sunday, so no leading padding.
         assertEquals(LocalDate.of(2026, 11, 1), grid.cells.first().date)

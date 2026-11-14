@@ -78,10 +78,11 @@ public class MonthGrid private constructor(
             val start = first.minusDays(((first.dayOfWeek.value - firstDayOfWeek.value + 7) % 7).toLong())
             val lastDayOfWeek = firstDayOfWeek.minus(1)
             val end = last.plusDays(((lastDayOfWeek.value - last.dayOfWeek.value + 7) % 7).toLong())
-            val cells = generateSequence(start) { it.plusDays(1) }
-                .takeWhile { !it.isAfter(end) }
-                .map { Cell(it, calendar.fromGregorian(it), it in first..last) }
-                .toList()
+            val cells =
+                generateSequence(start) { it.plusDays(1) }
+                    .takeWhile { !it.isAfter(end) }
+                    .map { Cell(it, calendar.fromGregorian(it), it in first..last) }
+                    .toList()
             return MonthGrid(cells.chunked(7), firstDayOfWeek)
         }
     }

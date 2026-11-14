@@ -74,7 +74,14 @@ public fun KollavarshamMonthView(
                     modifier = Modifier.weight(1f).padding(vertical = 4.dp),
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.labelSmall,
-                    color = if (weekday.dayOfWeek == DayOfWeek.SUNDAY) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant,
+                    color =
+                        if (weekday.dayOfWeek ==
+                            DayOfWeek.SUNDAY
+                        ) {
+                            MaterialTheme.colorScheme.error
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        },
                 )
             }
         }
@@ -110,16 +117,17 @@ private fun DayCell(
     val shape = RoundedCornerShape(8.dp)
     val description = "${cell.date}, ${cell.malayalamDate.format(locale)}"
     Box(
-        modifier = modifier
-            .aspectRatio(0.85f)
-            .padding(vertical = 2.dp)
-            .background(if (selected) colors.primaryContainer else colors.surface, shape)
-            .then(if (isToday) Modifier.border(1.dp, colors.primary, shape) else Modifier)
-            .clickable(onClick = onClick)
-            .semantics {
-                contentDescription = description
-                this.selected = selected
-            },
+        modifier =
+            modifier
+                .aspectRatio(0.85f)
+                .padding(vertical = 2.dp)
+                .background(if (selected) colors.primaryContainer else colors.surface, shape)
+                .then(if (isToday) Modifier.border(1.dp, colors.primary, shape) else Modifier)
+                .clickable(onClick = onClick)
+                .semantics {
+                    contentDescription = description
+                    this.selected = selected
+                },
         contentAlignment = Alignment.Center,
     ) {
         val alpha = if (cell.inMonth) 1f else 0.38f
