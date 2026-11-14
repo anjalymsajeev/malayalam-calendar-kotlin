@@ -18,4 +18,10 @@ cd samples/jvm-consumer
 ../../gradlew run
 ```
 
+The same conversion from Java ([`JavaMain.java`](src/main/java/sample/JavaMain.java)):
+
+```bash
+../../gradlew runJava
+```
+
 The Android sample app follows in Sprint 6.

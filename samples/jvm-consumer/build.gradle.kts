@@ -15,3 +15,12 @@ application {
     // Print Malayalam correctly even when the terminal locale is not UTF-8.
     applicationDefaultJvmArgs = listOf("-Dstdout.encoding=UTF-8")
 }
+
+// The same SDK called from Java: ../../gradlew runJava
+tasks.register<JavaExec>("runJava") {
+    group = "application"
+    description = "Runs the Java consumer example."
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("sample.JavaMain")
+    jvmArgs("-Dstdout.encoding=UTF-8")
+}

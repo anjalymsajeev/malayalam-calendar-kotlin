@@ -41,6 +41,20 @@ MalayalamDate(1202, MalayalamMonth.Chingam, 1).toLocalDate()
 calendar.today()   // today in Indian Standard Time
 ```
 
+### From Java
+
+The same API works from Java. Companion members are reached through `Companion`, and properties through getters:
+
+```java
+KollavarshamCalendar calendar = KollavarshamCalendar.Companion.create();
+
+MalayalamDate ml = calendar.fromGregorian(LocalDate.of(2026, 11, 14));   // 1202 Thulam 28
+int year = ml.getYear();   // also getMonth(), getDay()
+LocalDate greg = calendar.toGregorian(new MalayalamDate(1202, MalayalamMonth.Vrischikam, 1));   // 2026-11-17
+```
+
+A runnable version is in [`samples/jvm-consumer`](../samples/jvm-consumer/src/main/java/sample/JavaMain.java).
+
 ## 3. Handle invalid input
 
 A Malayalam month has 29 to 32 days, and the length changes from year to year. The SDK never rolls an invalid date over into the next month.
