@@ -12,7 +12,9 @@ import java.time.LocalDate
  * where `month` is a [MalayalamMonth] name and `first_day` an ISO date.
  */
 internal object VerifiedOverrides {
-    private const val RESOURCE = "verified-overrides.csv"
+    // Absolute path: a path relative to this class's package would break when R8/ProGuard
+    // renames or repackages the class in a minified Android app.
+    private const val RESOURCE = "/io/github/anjalymsajeev/kollavarsham/core/boundary/verified-overrides.csv"
 
     val bundled: Map<MonthKey, LocalDate> by lazy {
         val stream =
