@@ -2,8 +2,8 @@
 
 | Sprint | Goal | Status |
 |---|---|---|
-| 0 | Discovery and architecture | **Awaiting approval** |
-| 1 | Core SDK foundation | Planned (backlog below) |
+| 0 | Discovery and architecture | Done (approved 2026-11-14) |
+| 1 | Core SDK foundation | **Done, pending review** (report below) |
 | 2 | Calendar conversion engine and reference dataset | Planned |
 | 3 | Localisation and developer experience | Planned |
 | 4 | Panchangam foundation | Planned |
@@ -122,3 +122,46 @@ Total is about 26 points. Commits will be small and grouped: build skeleton → 
 - The Q1 decision.
 - Invariant tests for every day from 1900 to 2100.
 - A peer diff against the Dart package.
+
+---
+
+## Sprint 1 completion report
+
+**Objective met:** a compilable, tested, documented core library. `./gradlew build` is green: compile, 34 unit tests in 11 classes, `apiCheck`, and the core no-Android dependency guard.
+
+### Decisions taken at sprint start (defaults from Sprint 0)
+
+| Question | Decision |
+|---|---|
+| Q4 | Group `io.github.anjalymsajeev`, package root `io.github.anjalymsajeev.kollavarsham` |
+| Q6 | Module named `kollavarsham-locale` |
+| Q7 | JUnit 5 with kotlin-test; exhaustive loops instead of Kotest |
+| Q9 | Identifiers `Edavam`, `Karkidakam` |
+| Q10 | Apache-2.0. The GitHub repository has to be created by the owner (see below). |
+
+### Backlog results
+
+| ID | Result |
+|---|---|
+| S1-1 | Done. Three modules; Kotlin 2.0.21; JVM 11 bytecode; `explicitApi()`; warnings fail the build. |
+| S1-2 | **Partly done.** binary-compatibility-validator and the CI workflow are in. **ktlint/detekt and Dokka are deferred to Sprint 3.** Maven Central was rate-limiting this environment, so the build was kept to the minimum set of plugins. KDoc is written for every public declaration. |
+| S1-3 to S1-7 | Done. Models, validation types and exceptions. |
+| S1-8 | Done. `BoundaryResolver`: a thread-safe per-year cache over an internal `MonthBoundarySource`. |
+| S1-9 | Done. Conversion and validation. Every day from 1900 to 2100 round-trips against a synthetic table. |
+| S1-10 | Done. `plusDays`, `plusMonths` (clamped), `daysBetween`. |
+| S1-11 | Done. Verified and user overrides with precedence; impossible lengths fail at construction. The bundled CSV is empty until Sprint 2. |
+| S1-12 | Done. Malayalam and English month and weekday names; NFC and chillu checks. |
+| S1-13 | Done. README, API_REFERENCE, CONTRIBUTING, CHANGELOG, ACKNOWLEDGEMENTS, LICENSE. |
+
+### Known limitations, by design
+
+- No real calendar data yet: tests use a synthetic month table, and `KollavarshamCalendar.create()` doesn't exist until Sprint 2.
+- `MalayalamDate` and `MonthBoundary` are `data class`es. Whether they should stay that way for binary-compatibility safety will be reviewed in Sprint 7.
+
+### Next: Sprint 2 (conversion engine)
+
+1. Astronomy: Sun (VSOP87 truncated), nutation, ΔT, sunrise, sankranti.
+2. `AstronomicalBoundarySource` and public `create()`.
+3. A T1 reference dataset with citations.
+4. The Q1 ayanamsa decision.
+5. Invariant tests on real data and a peer diff against the Dart package.

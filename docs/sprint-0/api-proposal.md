@@ -1,6 +1,6 @@
 # Domain model and public API proposal (Sprint 0)
 
-Status: **Proposal for review.** `API_REFERENCE.md` will be generated from the real code in Sprint 1 and then maintained.
+Status: **Approved, with Sprint 1 amendments** (see §6). `API_REFERENCE.md` will be generated from the real code in Sprint 1 and then maintained.
 
 ## 1. Review of the illustrative API in the brief
 
@@ -16,7 +16,7 @@ Status: **Proposal for review.** `API_REFERENCE.md` will be generated from the r
 ## 2. Domain model (Sprint 1–2 scope)
 
 ```kotlin
-package org.kollavarsham.core
+package io.github.anjalymsajeev.kollavarsham.core
 
 /** The 12 solar months in Chingam-first order. `number` is 1..12. */
 public enum class MalayalamMonth(public val number: Int) {
@@ -69,7 +69,7 @@ public data class GeoLocation(val latitude: Double, val longitude: Double, val n
 
 public data class CalendarConfiguration(
     val referenceLocation: GeoLocation = GeoLocation.Thiruvananthapuram,
-    val monthStartOverrides: Map<Pair<Int, MalayalamMonth>, java.time.LocalDate> = emptyMap(),
+    val monthStartOverrides: Map<MonthKey, java.time.LocalDate> = emptyMap(),
     val applyVerifiedOverrides: Boolean = true,
 )
 // Deliberately absent until there is evidence: an ayanamsa switch (Q1) and Kanni year start (Sprint 3).
@@ -164,3 +164,11 @@ today.format(CalendarLocale.ENGLISH)                // "28 Thulam 1202"
 - The binary-compatibility-validator `.api` dump is checked in and verified in CI.
 - No public `data class` copy or constructor changes after 1.0. `MalayalamDate` and `MonthBoundary` will be reviewed again in Sprint 7 to decide whether they should become regular classes for binary-compatibility safety.
 - Sealed hierarchies may gain subtypes only in minor releases with release notes. Callers are advised to include an `else` branch in `when` expressions.
+
+## 6. Amendments made in Sprint 1
+
+- **`MonthKey(year, month)`** replaces `Pair<Int, MalayalamMonth>` for override keys. It is clearer at call sites and carries month arithmetic (`next()`, `previous()`, `plus()`).
+- **The package root** is `io.github.anjalymsajeev.kollavarsham` (Q4 default).
+- **`KollavarshamCalendar.create()` is deferred to Sprint 2.** Without the astronomical boundary source it would have nothing real to compute with.
+- **`LocalDate.toMalayalamDate()`** is deferred to Sprint 2 for the same reason.
+- **Validation order:** `validate()` checks the supported year, then the day against the month length, then the Gregorian supported range.

@@ -56,14 +56,13 @@ graph TD
 ## 3. Package layout (core)
 
 ```
-org.kollavarsham.core            // public API: KollavarshamCalendar, MalayalamDate, MalayalamMonth, …
-org.kollavarsham.core.boundary   // internal: month-start computation, cache, overrides
-org.kollavarsham.core.validation // public: DateValidation results and exceptions
+io.github.anjalymsajeev.kollavarsham.core            // public API: KollavarshamCalendar, MalayalamDate, MalayalamMonth, …
+io.github.anjalymsajeev.kollavarsham.core.boundary   // internal: month-start computation, cache, overrides
 ```
 
-The group ID and package (`org.kollavarsham`) are placeholders.
+Group ID `io.github.anjalymsajeev`, package root `io.github.anjalymsajeev.kollavarsham` (Q4, default chosen at the start of Sprint 1). Validation types live in the root package.
 
-- **[OPEN Q4]** The existing kollavarsham.org project uses `org.kollavarsham.*` on Maven Central. Publishing under that namespace would need their agreement.
+- **[Q4, resolved]** We avoided `org.kollavarsham.*`, which the existing kollavarsham.org project already uses on Maven Central.
 - The suggestion is a namespace you control (e.g. `io.github.<user>.kollavarsham` or your own domain).
 
 ## 4. Cross-cutting concerns
