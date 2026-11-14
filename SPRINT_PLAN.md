@@ -3,8 +3,8 @@
 | Sprint | Goal | Status |
 |---|---|---|
 | 0 | Discovery and architecture | Done (approved 2026-11-14) |
-| 1 | Core SDK foundation | **Done, pending review** (report below) |
-| 2 | Calendar conversion engine and reference dataset | Planned |
+| 1 | Core SDK foundation | Done |
+| 2 | Calendar conversion engine and reference dataset | **Done with one shortfall, pending review** (report below) |
 | 3 | Localisation and developer experience | Planned |
 | 4 | Panchangam foundation | Planned |
 | 5 | Festival and observance engine | Planned |
@@ -165,3 +165,37 @@ Total is about 26 points. Commits will be small and grouped: build skeleton → 
 3. A T1 reference dataset with citations.
 4. The Q1 ayanamsa decision.
 5. Invariant tests on real data and a peer diff against the Dart package.
+
+---
+
+## Sprint 2 completion report
+
+**Objective:** real Gregorian ↔ Kollavarsham conversion from astronomy and the Kerala rule, verified against observations.
+
+### User stories and acceptance criteria
+
+| ID | Story | Acceptance criteria | Result |
+|---|---|---|---|
+| S2-1 | Solar position to about 1″ | Meeus 25.b within 1″; sankranti agrees with an independent reference | **Met.** Meeus within 1″ (RA and Dec within 0.15″). RMS 15.8 s vs astronomy-engine; about 1 s standard deviation vs Swiss Ephemeris for 1900–2025. |
+| S2-2 | Sunrise and sunset | Within 1 minute of the reference | **Met.** Worst 3 s over 744 days |
+| S2-3 | Kerala-rule month boundaries | Implements the 3/5-of-daytime rule with margin and sankranti | **Met.** `AstronomicalBoundarySource` |
+| S2-4 | Public API | `KollavarshamCalendar.create()`, `create(config)`, extension functions | **Met** |
+| S2-5 | Q1 decision on evidence | Convention chosen and documented | **Met.** Convention A (ADR-0002 accepted) |
+| S2-6 | Reference dataset | 60 or more T1 rows, all reproduced | **Partly met.** 21 rows (11 T1-search, 10 T3), 21 of 21 reproduced. See VALIDATION_STRATEGY §6. |
+| S2-7 | Invariants and round trips 1900–2100 | All pass | **Met** |
+| S2-8 | Borderline report | Checked in; changes fail CI | **Met.** 30 months |
+
+The build is green: **48 tests**, `apiCheck`, and the dependency guard. Performance: 1900–2100 in about 0.3 s, cold.
+
+### New risks and follow-ups
+
+- **ΔT model:** Espenak–Meeus overestimates current ΔT by about 5 s, and predictions diverge by up to 2 minutes by 2100. Replace it with an IERS-based table. This only affects months with \|margin\| < 2 min.
+- **JPL DE440 reference:** blocked by the network; to do when access is available.
+- **Evidence:** promote T1-search rows to T1 and source the borderline months. This needs network access or printed almanacs (an owner action).
+
+### Next: Sprint 3 (localisation and developer experience)
+
+- Malayalam numerals and formatting APIs.
+- Transliteration options.
+- ktlint or detekt and Dokka, carried over from Sprint 1.
+- Usage samples.

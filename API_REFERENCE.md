@@ -5,9 +5,7 @@ Version: `0.1.0-alpha01` (unreleased) · Package root: `io.github.anjalymsajeev.
 The authoritative list of public declarations is in `*/api/*.api`, which CI checks on every build. This page
 explains the API with examples.
 
-> **Sprint 1 status:** the models, validation, arithmetic and names are complete. `KollavarshamCalendar.create()`
-> arrives in Sprint 2 with the astronomical engine. Until then the calendar can only be built inside the SDK,
-> which is how the tests exercise it.
+> **Sprint 2 status:** conversion is backed by the astronomical engine. Formatting and numerals arrive in Sprint 3.
 
 ## Artifacts
 
@@ -65,6 +63,12 @@ key.plus(-13)     // MonthKey(1201, Edavam)
 Immutable and thread-safe. The supported range is 1900-01-01 to 2100-12-31.
 
 ```kotlin
+// Creation
+val calendar = KollavarshamCalendar.create()                 // shared default (Thiruvananthapuram)
+val kozhikode = KollavarshamCalendar.create(
+    CalendarConfiguration(referenceLocation = GeoLocation(11.2588, 75.7804, "Kozhikode")),
+)
+
 // Conversion
 calendar.fromGregorian(LocalDate.of(2026, 11, 14))                         // MalayalamDate
 calendar.toGregorian(MalayalamDate(1202, MalayalamMonth.Vrischikam, 1))    // LocalDate, or throws
@@ -86,6 +90,14 @@ calendar.daysBetween(start, endExclusive)
 
 calendar.today()                        // Indian Standard Time, system clock
 calendar.today(Clock.fixed(...))        // deterministic
+```
+
+### Extensions
+
+```kotlin
+LocalDate.of(2026, 11, 14).toMalayalamDate()                        // 1202 Thulam 28 (default calendar)
+MalayalamDate(1202, MalayalamMonth.Vrischikam, 1).toLocalDate()     // 2026-11-17
+LocalDate.of(2026, 11, 14).toMalayalamDate(kozhikode)               // with a specific calendar
 ```
 
 ### `MonthBoundary` and `BoundarySource`
@@ -121,6 +133,22 @@ is constructed.
 | `DateOutOfSupportedRangeException` | The input or result is outside 1900–2100 |
 
 Both exceptions extend `KollavarshamException`, which extends `IllegalArgumentException`.
+
+## kollavarsham-astronomy (opt-in)
+
+The astronomy API is unstable until 1.0. Opt in with `@OptIn(KollavarshamAstronomyApi::class)`.
+
+```kotlin
+@OptIn(KollavarshamAstronomyApi::class)
+fun example() {
+    val jde = AstroTime.julianEphemerisDay(AstroTime.julianDayUt(Instant.now()))
+    Sun.position(jde).longitude                                              // apparent tropical longitude, degrees
+    Sankranti.siderealLongitude(Instant.now(), Ayanamsa.LahiriTrue)          // nirayana longitude
+    Sankranti.find(rashi = 7, estimate = Instant.parse("2026-11-15T00:00:00Z"), ayanamsa = Ayanamsa.LahiriTrue)
+    SunriseSunset.sunrise(LocalDate.of(2026, 11, 14), 8.5241, 76.9366, ZoneId.of("Asia/Kolkata"))
+    DeltaT.seconds(2026.9)
+}
+```
 
 ## kollavarsham-locale
 

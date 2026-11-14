@@ -2,30 +2,40 @@
 
 A Kotlin SDK for the Malayalam (Kollavarsham) calendar. It converts between Gregorian and Malayalam dates following the Kerala solar-month rule, works offline, is thread-safe, and keeps Android out of the core.
 
-> **Status: Sprint 1 (core SDK foundation) complete. Not yet released.**
-> The models, validation, conversion mechanics, arithmetic and names are implemented and tested. The
-> astronomical engine that computes real month boundaries, along with `KollavarshamCalendar.create()`,
-> arrives in Sprint 2.
+> **Status: Sprint 2 (conversion engine) complete. Not yet released (`0.1.0-alpha01`).**
+> Real conversion works for 1900–2100. It reproduces all 21 cited month starts in the reference dataset;
+> see [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) for what that evidence does and doesn't prove.
 
-## Target usage
+## Usage
 
 ```kotlin
-val calendar = KollavarshamCalendar.create()                               // Sprint 2
+val calendar = KollavarshamCalendar.create()
 
 calendar.fromGregorian(LocalDate.of(2026, 11, 14))                         // 1202 Thulam 28
 calendar.toGregorian(MalayalamDate(1202, MalayalamMonth.Vrischikam, 1))    // 2026-11-17
 calendar.validate(MalayalamDate(1202, MalayalamMonth.Thulam, 31))          // DayOutOfRange(31, 30)
 
 MalayalamMonth.Vrischikam.displayName(CalendarLocale.MALAYALAM)            // "വൃശ്ചികം"
+
+LocalDate.of(2026, 11, 14).toMalayalamDate()                               // 1202 Thulam 28
+
+// Months where almanacs may disagree by a day:
+val b = calendar.monthBoundary(1199, MalayalamMonth.Chingam)
+b.cutoffMargin                                                             // ~ +1 minute: borderline
 ```
 
-The expected dates above come from the Sprint 0 accuracy spike. They are not yet produced by this SDK.
+## Accuracy
+
+- Month starts follow Kerala's rule. Day 1 is the day of the sidereal sankranti if it falls before 3/5 of the daytime at Thiruvananthapuram; otherwise it is the next day.
+- The Sun's position is accurate to about 1″, roughly 25 s at a sankranti.
+- 30 months between 1900 and 2100 fall within 10 minutes of the cut-off. Almanacs may differ by a day on these; `MonthBoundary.cutoffMargin` flags them.
+- **We don't claim 100 % accuracy.** Details are in [CALENDAR_ALGORITHM.md](CALENDAR_ALGORITHM.md) §7.
 
 ## Modules
 
 | Module | Purpose |
 |---|---|
-| `kollavarsham-astronomy` | Sun, ΔT, sunrise and sankranti (Sprint 2) |
+| `kollavarsham-astronomy` | Sun (VSOP87), ΔT, sunrise and sankranti (opt-in API) |
 | `kollavarsham-core` | Models, conversion, validation, arithmetic |
 | `kollavarsham-locale` | Malayalam and English names; formatting and numerals in Sprint 3 |
 

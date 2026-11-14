@@ -15,6 +15,7 @@
 - Overrides are a separate, versioned resource, `verified-overrides.csv` in core resources, loaded once. Every row must cite T1 evidence.
 - Callers can disable the bundled overrides (`applyVerifiedOverrides = false`) and add their own (`monthStartOverrides`).
 - Each override must keep all affected months within 29–32 days. A violation fails at construction.
+- Amendment (Sprint 2): a row may also be added when the computed |margin| is below 1 minute, inside the engine's uncertainty, and a cited observation fixes the date. The first such row is Thulam 1197.
 - `MonthBoundary.source` reports which source decided each boundary.
 
 ## Consequences

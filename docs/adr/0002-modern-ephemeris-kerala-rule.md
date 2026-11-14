@@ -1,6 +1,6 @@
 # ADR-0002: Modern solar ephemeris, Lahiri ayanamsa, and the Kerala 3/5-of-daytime rule
 
-- Status: Proposed (the ayanamsa convention is pending Q1)
+- Status: **Accepted** (Sprint 2). Convention A (`LahiriTrue`) was chosen on evidence.
 - Date: 2026-11-14
 
 ## Decision
@@ -28,3 +28,8 @@ The Lahiri convention (A: 1956 definition plus nutation; B: drikpanchang-calibra
 
 - Borderline months (|margin| < 10 min) are inherently uncertain.
 - `MonthBoundary.cutoffMargin` is exposed so that applications can show this uncertainty.
+
+## Sprint 2 outcome
+
+- The Lahiri convention is **A** (`Ayanamsa.LahiriTrue`). It matched 11 of 11 cited observations; B matched 8 of 11, failing all three months where the conventions differ.
+- Thulam 1197 has a computed margin of about 0 minutes, inside the engine's uncertainty. It is pinned by a cited verified override.
