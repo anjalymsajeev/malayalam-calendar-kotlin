@@ -1,0 +1,126 @@
+# Festival dates used to validate the rules (VALIDATION_STRATEGY.md). Retrieved 2026-11-14.
+# T3-reported: listed as observed in the Dart kollavarsham package tests (MIT), with the original
+# sources named there; T1-search: dated news report (page not opened from the build environment).
+me_year,festival_id,date,tier,source
+1185,onam,2009-09-02,T3-reported,Kerala Thiruvonam dates
+1186,onam,2010-08-23,T3-reported,Kerala Thiruvonam dates
+1187,onam,2011-09-09,T3-reported,Kerala Thiruvonam dates
+1188,onam,2012-08-29,T3-reported,Kerala Thiruvonam dates
+1189,onam,2013-09-16,T3-reported,Kerala Thiruvonam dates
+1190,onam,2014-09-07,T3-reported,Kerala Thiruvonam dates
+1191,onam,2015-08-28,T3-reported,Kerala Thiruvonam dates
+1193,onam,2017-09-04,T3-reported,Kerala Thiruvonam dates
+1194,onam,2018-08-25,T3-reported,Kerala Thiruvonam dates
+1195,onam,2019-09-11,T3-reported,Kerala Thiruvonam dates
+1196,onam,2020-08-31,T3-reported,Kerala Thiruvonam dates
+1197,onam,2021-08-21,T3-reported,Kerala Thiruvonam dates
+1198,onam,2022-09-08,T3-reported,Kerala Thiruvonam dates
+1199,onam,2023-08-29,T3-reported,Kerala Thiruvonam dates
+1200,onam,2024-09-15,T3-reported,Kerala Thiruvonam dates
+1201,onam,2025-09-05,T3-reported,Kerala Thiruvonam dates
+1190,attukal-pongala,2015-03-05,T3-reported,news reports and Kerala almanacs
+1191,attukal-pongala,2016-02-23,T3-reported,news reports and Kerala almanacs
+1192,attukal-pongala,2017-03-11,T3-reported,news reports and Kerala almanacs
+1193,attukal-pongala,2018-03-02,T3-reported,news reports and Kerala almanacs
+1194,attukal-pongala,2019-02-20,T3-reported,news reports and Kerala almanacs
+1195,attukal-pongala,2020-03-09,T3-reported,news reports and Kerala almanacs
+1196,attukal-pongala,2021-02-27,T3-reported,news reports and Kerala almanacs
+1197,attukal-pongala,2022-02-17,T3-reported,news reports and Kerala almanacs
+1198,attukal-pongala,2023-03-07,T3-reported,news reports and Kerala almanacs
+1199,attukal-pongala,2024-02-25,T3-reported,news reports and Kerala almanacs
+1200,attukal-pongala,2025-03-13,T3-reported,news reports and Kerala almanacs
+1191,thrissur-pooram,2016-04-17,T3-reported,news reports and Kerala almanacs
+1192,thrissur-pooram,2017-05-05,T3-reported,news reports and Kerala almanacs
+1193,thrissur-pooram,2018-04-25,T3-reported,news reports and Kerala almanacs
+1194,thrissur-pooram,2019-05-13,T3-reported,news reports and Kerala almanacs
+1196,thrissur-pooram,2021-04-23,T3-reported,news reports and Kerala almanacs
+1197,thrissur-pooram,2022-05-10,T3-reported,news reports and Kerala almanacs
+1198,thrissur-pooram,2023-04-30,T3-reported,news reports and Kerala almanacs
+1199,thrissur-pooram,2024-04-19,T3-reported,news reports and Kerala almanacs
+1200,thrissur-pooram,2025-05-06,T3-reported,news reports and Kerala almanacs
+1190,karkidaka-vavu,2015-08-14,T3-reported,news reports and Kerala almanacs
+1191,karkidaka-vavu,2016-08-02,T3-reported,news reports and Kerala almanacs
+1192,karkidaka-vavu,2017-07-23,T3-reported,news reports and Kerala almanacs
+1193,karkidaka-vavu,2018-08-11,T3-reported,news reports and Kerala almanacs
+1194,karkidaka-vavu,2019-07-31,T3-reported,news reports and Kerala almanacs
+1195,karkidaka-vavu,2020-07-20,T3-reported,news reports and Kerala almanacs
+1196,karkidaka-vavu,2021-08-08,T3-reported,news reports and Kerala almanacs
+1197,karkidaka-vavu,2022-07-28,T3-reported,news reports and Kerala almanacs
+1198,karkidaka-vavu,2023-07-17,T3-reported,news reports and Kerala almanacs
+1199,karkidaka-vavu,2024-08-03,T3-reported,news reports and Kerala almanacs
+1200,karkidaka-vavu,2025-07-24,T3-reported,news reports and Kerala almanacs
+1194,sivaratri,2019-03-04,T3-reported,Kerala Government holiday lists
+1195,sivaratri,2020-02-21,T3-reported,Kerala Government holiday lists
+1196,sivaratri,2021-03-11,T3-reported,Kerala Government holiday lists
+1197,sivaratri,2022-03-01,T3-reported,Kerala Government holiday lists
+1198,sivaratri,2023-02-18,T3-reported,Kerala Government holiday lists
+1199,sivaratri,2024-03-08,T3-reported,Kerala Government holiday lists
+1200,sivaratri,2025-02-26,T3-reported,Kerala Government holiday lists
+1201,sivaratri,2026-02-15,T3-reported,Kerala Government holiday lists
+1204,sivaratri,2029-02-11,T3-reported,Kerala Government holiday lists
+1195,vinayaka-chathurthi,2019-09-02,T3-reported,calendarific.com, timeanddate.com
+1196,vinayaka-chathurthi,2020-08-22,T3-reported,calendarific.com, timeanddate.com
+1197,vinayaka-chathurthi,2021-09-10,T3-reported,calendarific.com, timeanddate.com
+1198,vinayaka-chathurthi,2022-08-31,T3-reported,calendarific.com, timeanddate.com
+1199,vinayaka-chathurthi,2023-09-19,T3-reported,calendarific.com, timeanddate.com
+1200,vinayaka-chathurthi,2024-09-07,T3-reported,calendarific.com, timeanddate.com
+1201,vinayaka-chathurthi,2025-08-27,T3-reported,calendarific.com, timeanddate.com
+1202,vinayaka-chathurthi,2026-09-14,T3-reported,calendarific.com, timeanddate.com
+1195,vijayadasami,2019-10-08,T3-reported,Kerala Government holiday lists
+1196,vijayadasami,2020-10-26,T3-reported,Kerala Government holiday lists
+1197,vijayadasami,2021-10-15,T3-reported,Kerala Government holiday lists
+1198,vijayadasami,2022-10-05,T3-reported,Kerala Government holiday lists
+1199,vijayadasami,2023-10-24,T3-reported,Kerala Government holiday lists
+1200,vijayadasami,2024-10-13,T3-reported,Kerala Government holiday lists
+1201,vijayadasami,2025-10-02,T3-reported,Kerala Government holiday lists
+1202,vijayadasami,2026-10-21,T3-reported,Kerala Government holiday lists
+1195,mahanavami,2019-10-07,T3-reported,Kerala Government holiday lists
+1197,mahanavami,2021-10-14,T3-reported,Kerala Government holiday lists
+1198,mahanavami,2022-10-04,T3-reported,Kerala Government holiday lists
+1199,mahanavami,2023-10-23,T3-reported,Kerala Government holiday lists
+1200,mahanavami,2024-10-12,T3-reported,Kerala Government holiday lists
+1201,mahanavami,2025-10-01,T3-reported,Kerala Government holiday lists
+1202,mahanavami,2026-10-20,T3-reported,Kerala Government holiday lists
+1195,durgashtami,2019-10-06,T3-reported,calendarific.com; Kerala orders 2024, 2026
+1197,durgashtami,2021-10-13,T3-reported,calendarific.com; Kerala orders 2024, 2026
+1198,durgashtami,2022-10-03,T3-reported,calendarific.com; Kerala orders 2024, 2026
+1199,durgashtami,2023-10-22,T3-reported,calendarific.com; Kerala orders 2024, 2026
+1200,durgashtami,2024-10-11,T3-reported,calendarific.com; Kerala orders 2024, 2026
+1201,durgashtami,2025-09-30,T3-reported,calendarific.com; Kerala orders 2024, 2026
+1202,durgashtami,2026-10-19,T3-reported,calendarific.com; Kerala orders 2024, 2026
+1195,deepavali,2019-10-27,T3-reported,Kerala Government holiday lists
+1196,deepavali,2020-11-14,T3-reported,Kerala Government holiday lists
+1197,deepavali,2021-11-04,T3-reported,Kerala Government holiday lists
+1198,deepavali,2022-10-24,T3-reported,Kerala Government holiday lists
+1199,deepavali,2023-11-12,T3-reported,Kerala Government holiday lists
+1200,deepavali,2024-10-31,T3-reported,Kerala Government holiday lists
+1201,deepavali,2025-10-20,T3-reported,Kerala Government holiday lists
+1202,deepavali,2026-11-08,T3-reported,Kerala Government holiday lists
+1195,guruvayur-ekadashi,2019-12-08,T3-reported,templesinindiainfo.com, tapioca.co.in, drikpanchang.com
+1196,guruvayur-ekadashi,2020-11-25,T3-reported,templesinindiainfo.com, tapioca.co.in, drikpanchang.com
+1197,guruvayur-ekadashi,2021-12-14,T3-reported,templesinindiainfo.com, tapioca.co.in, drikpanchang.com
+1198,guruvayur-ekadashi,2022-12-03,T3-reported,templesinindiainfo.com, tapioca.co.in, drikpanchang.com
+1199,guruvayur-ekadashi,2023-11-23,T3-reported,templesinindiainfo.com, tapioca.co.in, drikpanchang.com
+1200,guruvayur-ekadashi,2024-12-11,T3-reported,templesinindiainfo.com, tapioca.co.in, drikpanchang.com
+1201,guruvayur-ekadashi,2025-12-01,T3-reported,templesinindiainfo.com, tapioca.co.in, drikpanchang.com
+1196,vishu,2021-04-14,T3-reported,published Kerala dates; 2026 Kerala holiday list
+1197,vishu,2022-04-15,T3-reported,published Kerala dates; 2026 Kerala holiday list
+1198,vishu,2023-04-15,T3-reported,published Kerala dates; 2026 Kerala holiday list
+1199,vishu,2024-04-14,T3-reported,published Kerala dates; 2026 Kerala holiday list
+1200,vishu,2025-04-14,T3-reported,published Kerala dates; 2026 Kerala holiday list
+1201,vishu,2026-04-15,T3-reported,published Kerala dates; 2026 Kerala holiday list
+1200,mandala-kalam-start,2024-11-16,T3-reported,Dart kollavarsham tests
+1200,mandala-pooja,2024-12-26,T3-reported,Dart kollavarsham tests
+1200,makaravilakku,2025-01-14,T3-reported,Dart kollavarsham tests
+1197,mandala-kalam-start,2021-11-16,T1-search,https://www.onmanorama.com/news/kerala/2021/11/14/sabarimala-ayyappa-temple-open-for-mandala-pooja.html
+1197,mandala-pooja,2021-12-26,T1-search,https://www.onmanorama.com/news/kerala/2021/11/14/sabarimala-ayyappa-temple-open-for-mandala-pooja.html
+1199,easter,2024-03-31,computus,Gregorian computus
+1200,easter,2025-04-20,computus,Gregorian computus
+1201,easter,2026-04-05,computus,Gregorian computus
+1200,good-friday,2025-04-18,computus,Gregorian computus
+# Out-of-sample: not in the Dart tables the rules were fitted to (checked 2026-11-14).
+1202,onam,2026-08-26,T1-search,https://telanganatoday.com/onam-brings-families-together-as-kerala-celebrates-thiruvonam
+1201,attukal-pongala,2026-03-03,T1-search,https://keralakaumudi.com/en/news/news-amp.php?id=1709041
+1201,thrissur-pooram,2026-04-26,T1-search,https://www.onmanorama.com/travel/kerala/2026/04/16/thrissur-pooram-complete-guide-tourists.amp.html
+1201,karkidaka-vavu,2026-08-12,T1-search,https://organiser.org/2026/08/12/374868/bharat/karkkidaka-vavu-2026-bali-tharppan-today-keralams-ancient-hindu-bond-between-the-living-and-departed-ancestors/
+1202,thrissur-pooram,2027-04-17,T1-search-KNOWN-MISS,https://www.onmanorama.com/travel/kerala/2026/04/27/thrissur-pooram-2026-next-year-date-decided.html
