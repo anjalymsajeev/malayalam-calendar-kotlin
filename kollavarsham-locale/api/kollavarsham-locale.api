@@ -6,8 +6,77 @@ public final class io/github/anjalymsajeev/kollavarsham/locale/CalendarLocale : 
 	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;
 }
 
+public final class io/github/anjalymsajeev/kollavarsham/locale/DateFormattingKt {
+	public static final fun format (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;)Ljava/lang/String;
+	public static final fun format (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;)Ljava/lang/String;
+	public static synthetic fun format$default (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;ILjava/lang/Object;)Ljava/lang/String;
+	public static synthetic fun format$default (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/DateStyle : java/lang/Enum {
+	public static final field FULL Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;
+	public static final field LONG Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;
+	public static final field MEDIUM Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;
+	public static final field SHORT Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter {
+	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter$Companion;
+	public synthetic fun <init> (Ljava/util/List;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun format (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;)Ljava/lang/String;
+	public final fun format (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;)Ljava/lang/String;
+	public final fun getLocale ()Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;
+	public final fun getNeedsWeekday ()Z
+	public final fun getNumerals ()Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;
+	public final fun getTransliteration ()Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;
+	public final fun withNumerals (Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;)Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter;
+	public final fun withTransliteration (Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;)Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter$Companion {
+	public final fun ofPattern (Ljava/lang/String;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;)Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter;
+	public static synthetic fun ofPattern$default (Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter$Companion;Ljava/lang/String;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter;
+	public final fun ofStyle (Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;)Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter;
+	public static synthetic fun ofStyle$default (Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter$Companion;Lio/github/anjalymsajeev/kollavarsham/locale/DateStyle;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/locale/KollavarshamDateFormatter;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/MalayalamNumerals {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/locale/MalayalamNumerals;
+	public final fun format (I)Ljava/lang/String;
+	public final fun format (J)Ljava/lang/String;
+	public final fun parse (Ljava/lang/String;)J
+	public final fun toMalayalamDigits (Ljava/lang/String;)Ljava/lang/String;
+	public final fun toWesternDigits (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/MalayalamTransliterator {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/locale/MalayalamTransliterator;
+	public final fun toIso15919 (Ljava/lang/String;)Ljava/lang/String;
+}
+
 public final class io/github/anjalymsajeev/kollavarsham/locale/NamesKt {
-	public static final fun displayName (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;)Ljava/lang/String;
-	public static final fun displayName (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;)Ljava/lang/String;
+	public static final fun displayName (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;)Ljava/lang/String;
+	public static final fun displayName (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;)Ljava/lang/String;
+	public static synthetic fun displayName$default (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;ILjava/lang/Object;)Ljava/lang/String;
+	public static synthetic fun displayName$default (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/NumeralSystem : java/lang/Enum {
+	public static final field MALAYALAM Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;
+	public static final field WESTERN Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/locale/NumeralSystem;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/locale/Transliteration : java/lang/Enum {
+	public static final field COMMON Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;
+	public static final field ISO_15919 Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/locale/Transliteration;
 }
 
