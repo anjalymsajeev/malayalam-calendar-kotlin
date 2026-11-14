@@ -19,4 +19,5 @@ include(
     ":kollavarsham-core",
     ":kollavarsham-locale",
     ":kollavarsham-panchangam",
+    ":kollavarsham-festivals",
 )
