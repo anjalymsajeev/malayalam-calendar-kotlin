@@ -7,10 +7,15 @@ plugins {
     alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.dokka)
     alias(libs.plugins.maven.publish) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.compose) apply false
 }
 
 apiValidation {
-    // Nothing excluded: every library module's public API is tracked.
+    // Every library module's public API is tracked; the sample app is not a library.
+    ignoredProjects += "sample-app"
 }
 
 subprojects {
