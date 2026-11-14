@@ -6,8 +6,20 @@
 ./gradlew build
 ```
 
-`build` compiles, runs the unit tests, checks the public API against `*/api/*.api`, and verifies that
+`build` compiles, runs the unit tests, runs ktlint, checks the public API against `*/api/*.api`, and verifies that
 `kollavarsham-core` has no Android or UI dependencies.
+
+Useful tasks:
+
+```bash
+./gradlew ktlintFormat
+```
+
+```bash
+./gradlew dokkaHtmlMultiModule
+```
+
+`ktlintFormat` fixes style. `dokkaHtmlMultiModule` writes the API site to `build/dokka/htmlMultiModule`.
 
 ## Public API changes
 

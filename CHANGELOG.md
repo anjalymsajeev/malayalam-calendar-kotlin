@@ -5,6 +5,13 @@ All notable changes are documented here. The project follows [Semantic Versionin
 
 ## [Unreleased]
 
+### Added (Sprint 3: localisation and developer experience)
+- `MalayalamNumerals` and `NumeralSystem` (Malayalam digits ൦–൯).
+- `MalayalamTransliterator` (ISO 15919) and `Transliteration` (COMMON, ISO_15919); `displayName(locale, transliteration)`.
+- `KollavarshamDateFormatter` (patterns `y M MM MMMM d dd EEEE G 'literal'`), `DateStyle` (SHORT/MEDIUM/LONG/FULL), `MalayalamDate.format(...)`.
+- Developer guide (`docs/guide.md`); standalone consumer sample (`samples/jvm-consumer`) run in CI.
+- ktlint (in `check`), Dokka multi-module API docs, Maven publication metadata with sources jars.
+
 ### Added (Sprint 2: conversion engine)
 - `kollavarsham-astronomy`: VSOP87D solar position (426-term truncation), FK5 correction, nutation, aberration;
   Espenak–Meeus ΔT; Lahiri ayanamsa (two conventions); sankranti search; sunrise and sunset.

@@ -5,7 +5,8 @@ Version: `0.1.0-alpha01` (unreleased) · Package root: `io.github.anjalymsajeev.
 The authoritative list of public declarations is in `*/api/*.api`, which CI checks on every build. This page
 explains the API with examples.
 
-> **Sprint 2 status:** conversion is backed by the astronomical engine. Formatting and numerals arrive in Sprint 3.
+> **Sprint 3 status:** conversion, names, transliteration, numerals and formatting are complete. For a task-oriented
+> introduction, see [docs/guide.md](docs/guide.md).
 
 ## Artifacts
 
@@ -152,10 +153,67 @@ fun example() {
 
 ## kollavarsham-locale
 
+### Names
+
 ```kotlin
-MalayalamMonth.Vrischikam.displayName(CalendarLocale.MALAYALAM)   // "വൃശ്ചികം"
-MalayalamMonth.Vrischikam.displayName(CalendarLocale.ENGLISH)     // "Vrischikam"
-MalayalamWeekday.Njayar.displayName(CalendarLocale.MALAYALAM)     // "ഞായർ"
+MalayalamMonth.Vrischikam.displayName(CalendarLocale.MALAYALAM)                         // "വൃശ്ചികം"
+MalayalamMonth.Vrischikam.displayName(CalendarLocale.ENGLISH)                           // "Vrischikam"
+MalayalamMonth.Vrischikam.displayName(CalendarLocale.ENGLISH, Transliteration.ISO_15919) // "Vr̥ścikaṁ"
+MalayalamWeekday.Njayar.displayName(CalendarLocale.MALAYALAM)                           // "ഞായർ"
 ```
 
 Malayalam strings are NFC-normalised and use atomic chillu letters.
+
+### `MalayalamNumerals` and `NumeralSystem`
+
+```kotlin
+MalayalamNumerals.format(1202)                 // "൧൨൦൨"
+MalayalamNumerals.toMalayalamDigits("28/03")   // "൨൮/൦൩"
+MalayalamNumerals.toWesternDigits("൨൮")        // "28"
+MalayalamNumerals.parse("൧൨൦൨")                // 1202 (accepts Western digits too)
+```
+
+`NumeralSystem.WESTERN` is the default and `NumeralSystem.MALAYALAM` gives ൦–൯. The traditional signs ൰ ൱ ൲ aren't used.
+
+### `MalayalamTransliterator` and `Transliteration`
+
+```kotlin
+MalayalamTransliterator.toIso15919("ചിങ്ങം")    // "ciṅṅaṁ"
+MalayalamTransliterator.toIso15919("കേരളം")    // "kēraḷaṁ"
+```
+
+`Transliteration.COMMON` gives familiar spellings (Chingam); `Transliteration.ISO_15919` gives scholarly romanisation (Ciṅṅaṁ).
+Known simplification: the dental and alveolar ന are both written "n".
+
+### Formatting: `DateStyle`, `KollavarshamDateFormatter`, `MalayalamDate.format`
+
+| Style | ENGLISH | MALAYALAM |
+|---|---|---|
+| SHORT | `28/03/1202` | `28/03/1202` |
+| MEDIUM | `28 Thulam 1202` | `1202 തുലാം 28` |
+| LONG | `28 Thulam 1202 ME` | `കൊല്ലവർഷം 1202 തുലാം 28` |
+| FULL (needs a calendar) | `Shani, 28 Thulam 1202 ME` | `കൊല്ലവർഷം 1202 തുലാം 28, ശനി` |
+
+```kotlin
+date.format(CalendarLocale.MALAYALAM)                                  // MEDIUM
+date.format(CalendarLocale.ENGLISH, DateStyle.LONG)
+date.format(CalendarLocale.MALAYALAM, DateStyle.FULL, calendar)
+date.format(CalendarLocale.MALAYALAM, numerals = NumeralSystem.MALAYALAM)
+
+val f = KollavarshamDateFormatter.ofPattern("d MMMM y G", CalendarLocale.ENGLISH)
+f.format(date)
+f.withNumerals(NumeralSystem.MALAYALAM).withTransliteration(Transliteration.ISO_15919).format(date)
+f.needsWeekday   // true if the pattern contains EEEE
+```
+
+| Pattern | Meaning |
+|---|---|
+| `y`… | year, at least as many digits as letters |
+| `M`, `MM` | month number, plain or 2 digits |
+| `MMMM` | month name |
+| `d`, `dd` | day, plain or 2 digits |
+| `EEEE` | weekday name (use `format(date, calendar)`) |
+| `G` | era: `ME` / `കൊല്ലവർഷം` |
+| `'text'` | literal; `''` is a quote |
+
+Other ASCII letters are rejected, so typos fail fast instead of printing garbage.

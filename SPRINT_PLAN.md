@@ -4,8 +4,8 @@
 |---|---|---|
 | 0 | Discovery and architecture | Done (approved 2026-11-14) |
 | 1 | Core SDK foundation | Done |
-| 2 | Calendar conversion engine and reference dataset | **Done with one shortfall, pending review** (report below) |
-| 3 | Localisation and developer experience | Planned |
+| 2 | Calendar conversion engine and reference dataset | Done (evidence shortfall carried over) |
+| 3 | Localisation and developer experience | **Done, pending review** (report below) |
 | 4 | Panchangam foundation | Planned |
 | 5 | Festival and observance engine | Planned |
 | 6 | Android SDK and sample app | Planned |
@@ -199,3 +199,34 @@ The build is green: **48 tests**, `apiCheck`, and the dependency guard. Performa
 - Transliteration options.
 - ktlint or detekt and Dokka, carried over from Sprint 1.
 - Usage samples.
+
+---
+
+## Sprint 3 completion report
+
+**Objective:** make the SDK pleasant to use from an app, and prove an external project can consume it through public APIs only.
+
+| ID | Story | Acceptance criteria | Result |
+|---|---|---|---|
+| S3-1 | Malayalam numerals | Format, convert and parse both ways | **Met.** `MalayalamNumerals`, round-trip tests |
+| S3-2 | Transliteration | ISO 15919 for all month and weekday names; general text | **Met.** `MalayalamTransliterator`. Simplification documented (dental and alveolar ന both "n"). |
+| S3-3 | Formatting | Styles and patterns in both locales; weekday; digit choice; invalid patterns rejected | **Met.** `KollavarshamDateFormatter`, `DateStyle`, `format()` extensions |
+| S3-4 | Developer docs | Guide with examples for every public API area | **Met.** `docs/guide.md`; API_REFERENCE updated; Dokka site |
+| S3-5 | Tooling carried over from Sprint 1 | ktlint in `check`; Dokka builds | **Met.** 302 style issues auto-fixed; Dokka works offline |
+| S3-6 | **Exit: external consumption** | A separate project consumes published artifacts via public API | **Met.** `samples/jvm-consumer` resolves `kollavarsham-locale` from Maven local and runs; added to CI |
+
+The build is green: **60 tests**, ktlint, `apiCheck`, and the dependency guard.
+
+**Not covered here:** an *Android* consumer. Google's Maven repository is unreachable from this environment, and the Android sample is Sprint 6's scope. The JVM consumer uses the same artifacts an Android app would; the only Android-specific requirement (`java.time` desugaring below API 26) is documented in the guide.
+
+**Carried over:**
+- The T1 evidence gap from Sprint 2 (needs network access or almanac pages).
+- An IERS-based ΔT table.
+- The JPL reference.
+
+### Next: Sprint 4 (Panchangam foundation)
+
+- Moon position (ELP-2000/82 abridged, Meeus ch. 47).
+- Nakshatra and tithi providers.
+- A sunrise-based day model and location configuration.
+- All of it in `kollavarsham-panchangam`, separate from conversion.

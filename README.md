@@ -2,7 +2,7 @@
 
 A Kotlin SDK for the Malayalam (Kollavarsham) calendar. It converts between Gregorian and Malayalam dates following the Kerala solar-month rule, works offline, is thread-safe, and keeps Android out of the core.
 
-> **Status: Sprint 2 (conversion engine) complete. Not yet released (`0.1.0-alpha01`).**
+> **Status: Sprint 3 (localisation and developer experience) complete. Not yet released (`0.1.0-alpha01`).**
 > Real conversion works for 1900–2100. It reproduces all 21 cited month starts in the reference dataset;
 > see [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) for what that evidence does and doesn't prove.
 
@@ -18,6 +18,7 @@ calendar.validate(MalayalamDate(1202, MalayalamMonth.Thulam, 31))          // Da
 MalayalamMonth.Vrischikam.displayName(CalendarLocale.MALAYALAM)            // "വൃശ്ചികം"
 
 LocalDate.of(2026, 11, 14).toMalayalamDate()                               // 1202 Thulam 28
+    .format(CalendarLocale.MALAYALAM, DateStyle.FULL, calendar)            // "കൊല്ലവർഷം 1202 തുലാം 28, ശനി"
 
 // Months where almanacs may disagree by a day:
 val b = calendar.monthBoundary(1199, MalayalamMonth.Chingam)
@@ -37,7 +38,7 @@ b.cutoffMargin                                                             // ~ 
 |---|---|
 | `kollavarsham-astronomy` | Sun (VSOP87), ΔT, sunrise and sankranti (opt-in API) |
 | `kollavarsham-core` | Models, conversion, validation, arithmetic |
-| `kollavarsham-locale` | Malayalam and English names; formatting and numerals in Sprint 3 |
+| `kollavarsham-locale` | Names, ISO 15919 transliteration, Malayalam numerals, date formatting |
 
 ## Requirements
 
@@ -54,6 +55,7 @@ b.cutoffMargin                                                             // ~ 
 
 | Document | Contents |
 |---|---|
+| [docs/guide.md](docs/guide.md) | Developer guide: using the SDK in an app |
 | [API_REFERENCE.md](API_REFERENCE.md) | Public API with examples |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Modules and principles |
 | [CALENDAR_ALGORITHM.md](CALENDAR_ALGORITHM.md) | Calendar rules and computation |
