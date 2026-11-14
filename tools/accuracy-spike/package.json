@@ -1,0 +1,10 @@
+{
+  "name": "kollavarsham-accuracy-spike",
+  "private": true,
+  "description": "Sprint 0 throwaway measurement: compares kollavarsham-js with a modern-ephemeris Kerala-rule computation. Not part of the SDK.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "astronomy-engine": "2.1.19",
+    "kollavarsham": "2.5.4"
+  }
+}

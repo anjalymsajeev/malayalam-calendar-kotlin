@@ -1,0 +1,915 @@
+{
+  "fixtureSummary": "spike vs Swiss Ephemeris Lahiri fixture (2412 sankrantis 1900-2100), minutes: min 4.25, median 6.68, max 7.61",
+  "monthStarts": 492,
+  "agree": 386,
+  "disagreements": [
+    {
+      "month": "Kumbham",
+      "spike": "1990-02-13",
+      "kollavarshamJs": "1990-02-12",
+      "sankrantiIst": "1990-02-12T22:37",
+      "marginMin": -530.4
+    },
+    {
+      "month": "Meenam",
+      "spike": "1990-03-15",
+      "kollavarshamJs": "1990-03-14",
+      "sankrantiIst": "1990-03-14T19:32",
+      "marginMin": -348.4
+    },
+    {
+      "month": "Vrischikam",
+      "spike": "1990-11-17",
+      "kollavarshamJs": "1990-11-16",
+      "sankrantiIst": "1990-11-16T14:23",
+      "marginMin": -66.1
+    },
+    {
+      "month": "Makaram",
+      "spike": "1991-01-15",
+      "kollavarshamJs": "1991-01-14",
+      "sankrantiIst": "1991-01-14T15:48",
+      "marginMin": -127.4
+    },
+    {
+      "month": "Medam",
+      "spike": "1992-04-14",
+      "kollavarshamJs": "1992-04-13",
+      "sankrantiIst": "1992-04-13T16:13",
+      "marginMin": -157.4
+    },
+    {
+      "month": "Dhanu",
+      "spike": "1992-12-16",
+      "kollavarshamJs": "1992-12-15",
+      "sankrantiIst": "1992-12-15T17:18",
+      "marginMin": -231.4
+    },
+    {
+      "month": "Kumbham",
+      "spike": "1993-02-13",
+      "kollavarshamJs": "1993-02-12",
+      "sankrantiIst": "1993-02-12T17:03",
+      "marginMin": -195.8
+    },
+    {
+      "month": "Meenam",
+      "spike": "1993-03-15",
+      "kollavarshamJs": "1993-03-14",
+      "sankrantiIst": "1993-03-14T13:58",
+      "marginMin": -14.7
+    },
+    {
+      "month": "Medam",
+      "spike": "1993-04-14",
+      "kollavarshamJs": "1993-04-13",
+      "sankrantiIst": "1993-04-13T22:31",
+      "marginMin": -534.9
+    },
+    {
+      "month": "Idavam",
+      "spike": "1993-05-15",
+      "kollavarshamJs": "1993-05-14",
+      "sankrantiIst": "1993-05-14T19:26",
+      "marginMin": -352.5
+    },
+    {
+      "month": "Kumbham",
+      "spike": "1994-02-13",
+      "kollavarshamJs": "1994-02-12",
+      "sankrantiIst": "1994-02-12T23:08",
+      "marginMin": -561.3
+    },
+    {
+      "month": "Meenam",
+      "spike": "1994-03-15",
+      "kollavarshamJs": "1994-03-14",
+      "sankrantiIst": "1994-03-14T20:05",
+      "marginMin": -381.1
+    },
+    {
+      "month": "Makaram",
+      "spike": "1995-01-15",
+      "kollavarshamJs": "1995-01-14",
+      "sankrantiIst": "1995-01-14T16:14",
+      "marginMin": -153
+    },
+    {
+      "month": "Mithunam",
+      "spike": "1995-06-16",
+      "kollavarshamJs": "1995-06-15",
+      "sankrantiIst": "1995-06-15T14:11",
+      "marginMin": -33.3
+    },
+    {
+      "month": "Medam",
+      "spike": "1996-04-14",
+      "kollavarshamJs": "1996-04-13",
+      "sankrantiIst": "1996-04-13T16:50",
+      "marginMin": -194
+    },
+    {
+      "month": "Idavam",
+      "spike": "1996-05-15",
+      "kollavarshamJs": "1996-05-14",
+      "sankrantiIst": "1996-05-14T13:45",
+      "marginMin": -11.9
+    },
+    {
+      "month": "Dhanu",
+      "spike": "1996-12-16",
+      "kollavarshamJs": "1996-12-15",
+      "sankrantiIst": "1996-12-15T17:53",
+      "marginMin": -266.3
+    },
+    {
+      "month": "Kumbham",
+      "spike": "1997-02-13",
+      "kollavarshamJs": "1997-02-12",
+      "sankrantiIst": "1997-02-12T17:32",
+      "marginMin": -224.7
+    },
+    {
+      "month": "Meenam",
+      "spike": "1997-03-15",
+      "kollavarshamJs": "1997-03-14",
+      "sankrantiIst": "1997-03-14T14:25",
+      "marginMin": -41.2
+    },
+    {
+      "month": "Medam",
+      "spike": "1997-04-14",
+      "kollavarshamJs": "1997-04-13",
+      "sankrantiIst": "1997-04-13T22:57",
+      "marginMin": -560.8
+    },
+    {
+      "month": "Idavam",
+      "spike": "1997-05-15",
+      "kollavarshamJs": "1997-05-14",
+      "sankrantiIst": "1997-05-14T19:53",
+      "marginMin": -379.6
+    },
+    {
+      "month": "Meenam",
+      "spike": "1998-03-15",
+      "kollavarshamJs": "1998-03-14",
+      "sankrantiIst": "1998-03-14T20:42",
+      "marginMin": -418.2
+    },
+    {
+      "month": "Makaram",
+      "spike": "1999-01-15",
+      "kollavarshamJs": "1999-01-14",
+      "sankrantiIst": "1999-01-14T17:07",
+      "marginMin": -205.9
+    },
+    {
+      "month": "Mithunam",
+      "spike": "1999-06-16",
+      "kollavarshamJs": "1999-06-15",
+      "sankrantiIst": "1999-06-15T14:45",
+      "marginMin": -67.1
+    },
+    {
+      "month": "Medam",
+      "spike": "2000-04-14",
+      "kollavarshamJs": "2000-04-13",
+      "sankrantiIst": "2000-04-13T17:29",
+      "marginMin": -232.4
+    },
+    {
+      "month": "Idavam",
+      "spike": "2000-05-15",
+      "kollavarshamJs": "2000-05-14",
+      "sankrantiIst": "2000-05-14T14:21",
+      "marginMin": -47.6
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2001-02-13",
+      "kollavarshamJs": "2001-02-12",
+      "sankrantiIst": "2001-02-12T18:20",
+      "marginMin": -273.2
+    },
+    {
+      "month": "Meenam",
+      "spike": "2001-03-15",
+      "kollavarshamJs": "2001-03-14",
+      "sankrantiIst": "2001-03-14T15:16",
+      "marginMin": -92.3
+    },
+    {
+      "month": "Medam",
+      "spike": "2001-04-14",
+      "kollavarshamJs": "2001-04-13",
+      "sankrantiIst": "2001-04-13T23:48",
+      "marginMin": -612.1
+    },
+    {
+      "month": "Idavam",
+      "spike": "2001-05-15",
+      "kollavarshamJs": "2001-05-14",
+      "sankrantiIst": "2001-05-14T20:41",
+      "marginMin": -427.9
+    },
+    {
+      "month": "Karkidakam",
+      "spike": "2001-07-17",
+      "kollavarshamJs": "2001-07-16",
+      "sankrantiIst": "2001-07-16T14:04",
+      "marginMin": -20.5
+    },
+    {
+      "month": "Meenam",
+      "spike": "2002-03-15",
+      "kollavarshamJs": "2002-03-14",
+      "sankrantiIst": "2002-03-14T21:23",
+      "marginMin": -459.5
+    },
+    {
+      "month": "Makaram",
+      "spike": "2003-01-15",
+      "kollavarshamJs": "2003-01-14",
+      "sankrantiIst": "2003-01-14T17:34",
+      "marginMin": -233.2
+    },
+    {
+      "month": "Mithunam",
+      "spike": "2003-06-16",
+      "kollavarshamJs": "2003-06-15",
+      "sankrantiIst": "2003-06-15T15:26",
+      "marginMin": -107.7
+    },
+    {
+      "month": "Kanni",
+      "spike": "2003-09-17",
+      "kollavarshamJs": "2003-09-18",
+      "sankrantiIst": "2003-09-17T10:41",
+      "marginMin": 168.5
+    },
+    {
+      "month": "Medam",
+      "spike": "2004-04-14",
+      "kollavarshamJs": "2004-04-13",
+      "sankrantiIst": "2004-04-13T18:08",
+      "marginMin": -272.4
+    },
+    {
+      "month": "Idavam",
+      "spike": "2004-05-15",
+      "kollavarshamJs": "2004-05-14",
+      "sankrantiIst": "2004-05-14T15:02",
+      "marginMin": -88.7
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2005-02-13",
+      "kollavarshamJs": "2005-02-12",
+      "sankrantiIst": "2005-02-12T18:49",
+      "marginMin": -301.9
+    },
+    {
+      "month": "Meenam",
+      "spike": "2005-03-15",
+      "kollavarshamJs": "2005-03-14",
+      "sankrantiIst": "2005-03-14T15:44",
+      "marginMin": -120.2
+    },
+    {
+      "month": "Medam",
+      "spike": "2005-04-14",
+      "kollavarshamJs": "2005-04-13",
+      "sankrantiIst": "2005-04-14T00:15",
+      "marginMin": 800.6
+    },
+    {
+      "month": "Idavam",
+      "spike": "2005-05-15",
+      "kollavarshamJs": "2005-05-14",
+      "sankrantiIst": "2005-05-14T21:09",
+      "marginMin": -456
+    },
+    {
+      "month": "Meenam",
+      "spike": "2006-03-15",
+      "kollavarshamJs": "2006-03-14",
+      "sankrantiIst": "2006-03-14T21:55",
+      "marginMin": -491.7
+    },
+    {
+      "month": "Makaram",
+      "spike": "2007-01-15",
+      "kollavarshamJs": "2007-01-14",
+      "sankrantiIst": "2007-01-14T18:14",
+      "marginMin": -272.9
+    },
+    {
+      "month": "Mithunam",
+      "spike": "2007-06-16",
+      "kollavarshamJs": "2007-06-15",
+      "sankrantiIst": "2007-06-15T15:59",
+      "marginMin": -141.2
+    },
+    {
+      "month": "Chingam",
+      "spike": "2007-08-17",
+      "kollavarshamJs": "2007-08-18",
+      "sankrantiIst": "2007-08-17T11:16",
+      "marginMin": 144.3
+    },
+    {
+      "month": "Kanni",
+      "spike": "2007-09-17",
+      "kollavarshamJs": "2007-09-18",
+      "sankrantiIst": "2007-09-17T11:14",
+      "marginMin": 135.8
+    },
+    {
+      "month": "Dhanu",
+      "spike": "2007-12-17",
+      "kollavarshamJs": "2007-12-16",
+      "sankrantiIst": "2007-12-16T13:34",
+      "marginMin": -6.8
+    },
+    {
+      "month": "Medam",
+      "spike": "2008-04-14",
+      "kollavarshamJs": "2008-04-13",
+      "sankrantiIst": "2008-04-13T18:35",
+      "marginMin": -299.2
+    },
+    {
+      "month": "Idavam",
+      "spike": "2008-05-15",
+      "kollavarshamJs": "2008-05-14",
+      "sankrantiIst": "2008-05-14T15:30",
+      "marginMin": -116.8
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2009-02-13",
+      "kollavarshamJs": "2009-02-12",
+      "sankrantiIst": "2009-02-12T19:30",
+      "marginMin": -343.3
+    },
+    {
+      "month": "Meenam",
+      "spike": "2009-03-15",
+      "kollavarshamJs": "2009-03-14",
+      "sankrantiIst": "2009-03-14T16:22",
+      "marginMin": -159.1
+    },
+    {
+      "month": "Idavam",
+      "spike": "2009-05-15",
+      "kollavarshamJs": "2009-05-14",
+      "sankrantiIst": "2009-05-14T21:47",
+      "marginMin": -493.9
+    },
+    {
+      "month": "Thulam",
+      "spike": "2009-10-17",
+      "kollavarshamJs": "2009-10-18",
+      "sankrantiIst": "2009-10-17T11:27",
+      "marginMin": 111.5
+    },
+    {
+      "month": "Meenam",
+      "spike": "2010-03-15",
+      "kollavarshamJs": "2010-03-14",
+      "sankrantiIst": "2010-03-14T22:36",
+      "marginMin": -532.1
+    },
+    {
+      "month": "Makaram",
+      "spike": "2011-01-15",
+      "kollavarshamJs": "2011-01-14",
+      "sankrantiIst": "2011-01-14T18:50",
+      "marginMin": -309.5
+    },
+    {
+      "month": "Mithunam",
+      "spike": "2011-06-16",
+      "kollavarshamJs": "2011-06-15",
+      "sankrantiIst": "2011-06-15T16:33",
+      "marginMin": -174.8
+    },
+    {
+      "month": "Chingam",
+      "spike": "2011-08-17",
+      "kollavarshamJs": "2011-08-18",
+      "sankrantiIst": "2011-08-17T11:55",
+      "marginMin": 104.7
+    },
+    {
+      "month": "Kanni",
+      "spike": "2011-09-17",
+      "kollavarshamJs": "2011-09-18",
+      "sankrantiIst": "2011-09-17T11:54",
+      "marginMin": 95.1
+    },
+    {
+      "month": "Dhanu",
+      "spike": "2011-12-17",
+      "kollavarshamJs": "2011-12-16",
+      "sankrantiIst": "2011-12-16T14:20",
+      "marginMin": -53.3
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2012-02-14",
+      "kollavarshamJs": "2012-02-13",
+      "sankrantiIst": "2012-02-13T14:04",
+      "marginMin": -17.1
+    },
+    {
+      "month": "Medam",
+      "spike": "2012-04-14",
+      "kollavarshamJs": "2012-04-13",
+      "sankrantiIst": "2012-04-13T19:26",
+      "marginMin": -349.9
+    },
+    {
+      "month": "Idavam",
+      "spike": "2012-05-15",
+      "kollavarshamJs": "2012-05-14",
+      "sankrantiIst": "2012-05-14T16:17",
+      "marginMin": -163.5
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2013-02-13",
+      "kollavarshamJs": "2013-02-12",
+      "sankrantiIst": "2013-02-12T20:07",
+      "marginMin": -379.8
+    },
+    {
+      "month": "Meenam",
+      "spike": "2013-03-15",
+      "kollavarshamJs": "2013-03-14",
+      "sankrantiIst": "2013-03-14T17:03",
+      "marginMin": -199.2
+    },
+    {
+      "month": "Thulam",
+      "spike": "2013-10-17",
+      "kollavarshamJs": "2013-10-18",
+      "sankrantiIst": "2013-10-17T12:06",
+      "marginMin": 72.2
+    },
+    {
+      "month": "Meenam",
+      "spike": "2014-03-15",
+      "kollavarshamJs": "2014-03-14",
+      "sankrantiIst": "2014-03-14T23:12",
+      "marginMin": -569
+    },
+    {
+      "month": "Makaram",
+      "spike": "2015-01-15",
+      "kollavarshamJs": "2015-01-14",
+      "sankrantiIst": "2015-01-14T19:34",
+      "marginMin": -353.2
+    },
+    {
+      "month": "Medam",
+      "spike": "2015-04-15",
+      "kollavarshamJs": "2015-04-14",
+      "sankrantiIst": "2015-04-14T13:53",
+      "marginMin": -17
+    },
+    {
+      "month": "Mithunam",
+      "spike": "2015-06-16",
+      "kollavarshamJs": "2015-06-15",
+      "sankrantiIst": "2015-06-15T17:18",
+      "marginMin": -220.4
+    },
+    {
+      "month": "Chingam",
+      "spike": "2015-08-17",
+      "kollavarshamJs": "2015-08-18",
+      "sankrantiIst": "2015-08-17T12:31",
+      "marginMin": 68.7
+    },
+    {
+      "month": "Kanni",
+      "spike": "2015-09-17",
+      "kollavarshamJs": "2015-09-18",
+      "sankrantiIst": "2015-09-17T12:26",
+      "marginMin": 63.2
+    },
+    {
+      "month": "Dhanu",
+      "spike": "2015-12-17",
+      "kollavarshamJs": "2015-12-16",
+      "sankrantiIst": "2015-12-16T14:49",
+      "marginMin": -81.9
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2016-02-14",
+      "kollavarshamJs": "2016-02-13",
+      "sankrantiIst": "2016-02-13T14:31",
+      "marginMin": -44.4
+    },
+    {
+      "month": "Medam",
+      "spike": "2016-04-14",
+      "kollavarshamJs": "2016-04-13",
+      "sankrantiIst": "2016-04-13T19:54",
+      "marginMin": -378.2
+    },
+    {
+      "month": "Idavam",
+      "spike": "2016-05-15",
+      "kollavarshamJs": "2016-05-14",
+      "sankrantiIst": "2016-05-14T16:48",
+      "marginMin": -194.7
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2017-02-13",
+      "kollavarshamJs": "2017-02-12",
+      "sankrantiIst": "2017-02-12T20:45",
+      "marginMin": -418.3
+    },
+    {
+      "month": "Meenam",
+      "spike": "2017-03-15",
+      "kollavarshamJs": "2017-03-14",
+      "sankrantiIst": "2017-03-14T17:39",
+      "marginMin": -236
+    },
+    {
+      "month": "Thulam",
+      "spike": "2017-10-17",
+      "kollavarshamJs": "2017-10-18",
+      "sankrantiIst": "2017-10-17T12:42",
+      "marginMin": 36.9
+    },
+    {
+      "month": "Makaram",
+      "spike": "2018-01-15",
+      "kollavarshamJs": "2018-01-14",
+      "sankrantiIst": "2018-01-14T13:53",
+      "marginMin": -12.2
+    },
+    {
+      "month": "Meenam",
+      "spike": "2018-03-15",
+      "kollavarshamJs": "2018-03-14",
+      "sankrantiIst": "2018-03-14T23:49",
+      "marginMin": -605.5
+    },
+    {
+      "month": "Medam",
+      "spike": "2019-04-15",
+      "kollavarshamJs": "2019-04-14",
+      "sankrantiIst": "2019-04-14T14:15",
+      "marginMin": -39.1
+    },
+    {
+      "month": "Mithunam",
+      "spike": "2019-06-16",
+      "kollavarshamJs": "2019-06-15",
+      "sankrantiIst": "2019-06-15T17:44",
+      "marginMin": -246.6
+    },
+    {
+      "month": "Chingam",
+      "spike": "2019-08-17",
+      "kollavarshamJs": "2019-08-18",
+      "sankrantiIst": "2019-08-17T13:08",
+      "marginMin": 31.8
+    },
+    {
+      "month": "Kanni",
+      "spike": "2019-09-17",
+      "kollavarshamJs": "2019-09-18",
+      "sankrantiIst": "2019-09-17T13:09",
+      "marginMin": 20.5
+    },
+    {
+      "month": "Dhanu",
+      "spike": "2019-12-17",
+      "kollavarshamJs": "2019-12-16",
+      "sankrantiIst": "2019-12-16T15:34",
+      "marginMin": -127
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2020-02-14",
+      "kollavarshamJs": "2020-02-13",
+      "sankrantiIst": "2020-02-13T15:10",
+      "marginMin": -82.8
+    },
+    {
+      "month": "Medam",
+      "spike": "2020-04-14",
+      "kollavarshamJs": "2020-04-13",
+      "sankrantiIst": "2020-04-13T20:30",
+      "marginMin": -413.6
+    },
+    {
+      "month": "Idavam",
+      "spike": "2020-05-15",
+      "kollavarshamJs": "2020-05-14",
+      "sankrantiIst": "2020-05-14T17:23",
+      "marginMin": -229.7
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2021-02-13",
+      "kollavarshamJs": "2021-02-12",
+      "sankrantiIst": "2021-02-12T21:19",
+      "marginMin": -451.7
+    },
+    {
+      "month": "Meenam",
+      "spike": "2021-03-15",
+      "kollavarshamJs": "2021-03-14",
+      "sankrantiIst": "2021-03-14T18:10",
+      "marginMin": -266.3
+    },
+    {
+      "month": "Thulam",
+      "spike": "2021-10-17",
+      "kollavarshamJs": "2021-10-18",
+      "sankrantiIst": "2021-10-17T13:18",
+      "marginMin": 0.1
+    },
+    {
+      "month": "Makaram",
+      "spike": "2022-01-15",
+      "kollavarshamJs": "2022-01-14",
+      "sankrantiIst": "2022-01-14T14:35",
+      "marginMin": -54.6
+    },
+    {
+      "month": "Medam",
+      "spike": "2023-04-15",
+      "kollavarshamJs": "2023-04-14",
+      "sankrantiIst": "2023-04-14T15:05",
+      "marginMin": -89.1
+    },
+    {
+      "month": "Chingam",
+      "spike": "2023-08-17",
+      "kollavarshamJs": "2023-08-18",
+      "sankrantiIst": "2023-08-17T13:39",
+      "marginMin": 1.2
+    },
+    {
+      "month": "Dhanu",
+      "spike": "2023-12-17",
+      "kollavarshamJs": "2023-12-16",
+      "sankrantiIst": "2023-12-16T16:05",
+      "marginMin": -158
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2024-02-14",
+      "kollavarshamJs": "2024-02-13",
+      "sankrantiIst": "2024-02-13T15:50",
+      "marginMin": -122.8
+    },
+    {
+      "month": "Medam",
+      "spike": "2024-04-14",
+      "kollavarshamJs": "2024-04-13",
+      "sankrantiIst": "2024-04-13T21:11",
+      "marginMin": -454.8
+    },
+    {
+      "month": "Idavam",
+      "spike": "2024-05-15",
+      "kollavarshamJs": "2024-05-14",
+      "sankrantiIst": "2024-05-14T18:00",
+      "marginMin": -267
+    },
+    {
+      "month": "Meenam",
+      "spike": "2025-03-15",
+      "kollavarshamJs": "2025-03-14",
+      "sankrantiIst": "2025-03-14T18:57",
+      "marginMin": -313.5
+    },
+    {
+      "month": "Makaram",
+      "spike": "2026-01-15",
+      "kollavarshamJs": "2026-01-14",
+      "sankrantiIst": "2026-01-14T15:13",
+      "marginMin": -92.4
+    },
+    {
+      "month": "Medam",
+      "spike": "2027-04-15",
+      "kollavarshamJs": "2027-04-14",
+      "sankrantiIst": "2027-04-14T15:35",
+      "marginMin": -118.5
+    },
+    {
+      "month": "Kumbham",
+      "spike": "2028-02-14",
+      "kollavarshamJs": "2028-02-13",
+      "sankrantiIst": "2028-02-13T16:29",
+      "marginMin": -162.1
+    },
+    {
+      "month": "Medam",
+      "spike": "2028-04-14",
+      "kollavarshamJs": "2028-04-13",
+      "sankrantiIst": "2028-04-13T21:51",
+      "marginMin": -494.5
+    },
+    {
+      "month": "Idavam",
+      "spike": "2028-05-15",
+      "kollavarshamJs": "2028-05-14",
+      "sankrantiIst": "2028-05-14T18:43",
+      "marginMin": -310
+    },
+    {
+      "month": "Meenam",
+      "spike": "2029-03-15",
+      "kollavarshamJs": "2029-03-14",
+      "sankrantiIst": "2029-03-14T19:30",
+      "marginMin": -346.2
+    },
+    {
+      "month": "Makaram",
+      "spike": "2030-01-15",
+      "kollavarshamJs": "2030-01-14",
+      "sankrantiIst": "2030-01-14T15:41",
+      "marginMin": -120.5
+    }
+  ],
+  "observed": [
+    {
+      "observed": "2021-11-16",
+      "month": "Vrischikam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2022-08-17",
+      "month": "Chingam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2023-08-17",
+      "month": "Chingam",
+      "spike": "match",
+      "kollavarshamJs": "MISS"
+    },
+    {
+      "observed": "2024-08-17",
+      "month": "Chingam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2025-08-17",
+      "month": "Chingam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2023-04-15",
+      "month": "Medam",
+      "spike": "match",
+      "kollavarshamJs": "MISS"
+    },
+    {
+      "observed": "2024-04-14",
+      "month": "Medam",
+      "spike": "match",
+      "kollavarshamJs": "MISS"
+    },
+    {
+      "observed": "2025-04-14",
+      "month": "Medam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2024-01-15",
+      "month": "Makaram",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2025-01-14",
+      "month": "Makaram",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2024-11-16",
+      "month": "Vrischikam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2024-07-16",
+      "month": "Karkidakam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2025-07-17",
+      "month": "Karkidakam",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    },
+    {
+      "observed": "2025-09-17",
+      "month": "Kanni",
+      "spike": "match",
+      "kollavarshamJs": "match"
+    }
+  ],
+  "upcoming": [
+    {
+      "start": "2026-04-14",
+      "month": "Medam",
+      "sankrantiIst": "2026-04-14T09:39",
+      "marginMin": 237.1
+    },
+    {
+      "start": "2026-05-15",
+      "month": "Idavam",
+      "sankrantiIst": "2026-05-15T06:29",
+      "marginMin": 424.5
+    },
+    {
+      "start": "2026-06-15",
+      "month": "Mithunam",
+      "sankrantiIst": "2026-06-15T13:00",
+      "marginMin": 38
+    },
+    {
+      "start": "2026-07-17",
+      "month": "Karkidakam",
+      "sankrantiIst": "2026-07-16T23:46",
+      "marginMin": -603.1
+    },
+    {
+      "start": "2026-08-17",
+      "month": "Chingam",
+      "sankrantiIst": "2026-08-17T08:05",
+      "marginMin": 334.7
+    },
+    {
+      "start": "2026-09-17",
+      "month": "Kanni",
+      "sankrantiIst": "2026-09-17T08:00",
+      "marginMin": 329.5
+    },
+    {
+      "start": "2026-10-18",
+      "month": "Thulam",
+      "sankrantiIst": "2026-10-17T19:58",
+      "marginMin": -399.7
+    },
+    {
+      "start": "2026-11-17",
+      "month": "Vrischikam",
+      "sankrantiIst": "2026-11-16T19:50",
+      "marginMin": -392.8
+    },
+    {
+      "start": "2026-12-16",
+      "month": "Dhanu",
+      "sankrantiIst": "2026-12-16T10:31",
+      "marginMin": 175.8
+    },
+    {
+      "start": "2027-01-15",
+      "month": "Makaram",
+      "sankrantiIst": "2027-01-14T21:17",
+      "marginMin": -455.8
+    },
+    {
+      "start": "2027-02-13",
+      "month": "Kumbham",
+      "sankrantiIst": "2027-02-13T10:15",
+      "marginMin": 211.8
+    },
+    {
+      "start": "2027-03-15",
+      "month": "Meenam",
+      "sankrantiIst": "2027-03-15T07:06",
+      "marginMin": 396.9
+    },
+    {
+      "start": "2027-04-15",
+      "month": "Medam",
+      "sankrantiIst": "2027-04-14T15:35",
+      "marginMin": -118.5
+    }
+  ]
+}
