@@ -41,7 +41,7 @@ public sealed class KollavarshamException(
  *
  * @property validation the reason.
  */
-public class InvalidMalayalamDateException(
+public class InvalidMalayalamDateException internal constructor(
     public val date: MalayalamDate,
     public val validation: DateValidation,
 ) : KollavarshamException(
@@ -57,7 +57,7 @@ public class InvalidMalayalamDateException(
  *
  * @property supportedRange the supported Gregorian range.
  */
-public class DateOutOfSupportedRangeException(
+public class DateOutOfSupportedRangeException internal constructor(
     description: String,
     public val supportedRange: ClosedRange<LocalDate>,
 ) : KollavarshamException("$description is outside the supported range $supportedRange")

@@ -25,7 +25,6 @@ public final class io/github/anjalymsajeev/kollavarsham/core/CalendarConfigurati
 }
 
 public final class io/github/anjalymsajeev/kollavarsham/core/DateOutOfSupportedRangeException : io/github/anjalymsajeev/kollavarsham/core/KollavarshamException {
-	public fun <init> (Ljava/lang/String;Lkotlin/ranges/ClosedRange;)V
 	public final fun getSupportedRange ()Lkotlin/ranges/ClosedRange;
 }
 
@@ -92,7 +91,6 @@ public final class io/github/anjalymsajeev/kollavarsham/core/GeoLocation$Compani
 }
 
 public final class io/github/anjalymsajeev/kollavarsham/core/InvalidMalayalamDateException : io/github/anjalymsajeev/kollavarsham/core/KollavarshamException {
-	public fun <init> (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/core/DateValidation;)V
 	public final fun getDate ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
 	public final fun getValidation ()Lio/github/anjalymsajeev/kollavarsham/core/DateValidation;
 }

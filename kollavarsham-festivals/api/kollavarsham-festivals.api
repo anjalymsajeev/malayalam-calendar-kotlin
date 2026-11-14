@@ -2,7 +2,6 @@ public final class io/github/anjalymsajeev/kollavarsham/festivals/DatedObservanc
 	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/festivals/DatedObservances$Companion;
 	public fun <init> (Ljava/util/List;)V
 	public fun observances (Lkotlin/ranges/ClosedRange;)Ljava/util/List;
-	public fun observancesOn (Ljava/time/LocalDate;)Ljava/util/List;
 }
 
 public final class io/github/anjalymsajeev/kollavarsham/festivals/DatedObservances$Companion {
@@ -248,15 +247,11 @@ public final class io/github/anjalymsajeev/kollavarsham/festivals/ObservanceCate
 public abstract interface class io/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider {
 	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider$Companion;
 	public abstract fun observances (Lkotlin/ranges/ClosedRange;)Ljava/util/List;
-	public abstract fun observancesOn (Ljava/time/LocalDate;)Ljava/util/List;
+	public fun observancesOn (Ljava/time/LocalDate;)Ljava/util/List;
 }
 
 public final class io/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider$Companion {
 	public final fun combine ([Lio/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider;)Lio/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider;
-}
-
-public final class io/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider$DefaultImpls {
-	public static fun observancesOn (Lio/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider;Ljava/time/LocalDate;)Ljava/util/List;
 }
 
 public final class io/github/anjalymsajeev/kollavarsham/festivals/ObservanceSource : java/lang/Enum {
@@ -324,6 +319,5 @@ public final class io/github/anjalymsajeev/kollavarsham/festivals/ReadingTime$Su
 public final class io/github/anjalymsajeev/kollavarsham/festivals/RuleBasedObservances : io/github/anjalymsajeev/kollavarsham/festivals/ObservanceProvider {
 	public fun <init> (Lio/github/anjalymsajeev/kollavarsham/festivals/FestivalCalendar;)V
 	public fun observances (Lkotlin/ranges/ClosedRange;)Ljava/util/List;
-	public fun observancesOn (Ljava/time/LocalDate;)Ljava/util/List;
 }
 

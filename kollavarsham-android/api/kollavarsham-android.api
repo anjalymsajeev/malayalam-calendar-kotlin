@@ -1,10 +1,3 @@
-public final class io/github/anjalymsajeev/kollavarsham/android/ComposableSingletons$KollavarshamMonthViewKt {
-	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/android/ComposableSingletons$KollavarshamMonthViewKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$kollavarsham_android_release ()Lkotlin/jvm/functions/Function2;
-}
-
 public final class io/github/anjalymsajeev/kollavarsham/android/KollavarshamMonthViewKt {
 	public static final fun KollavarshamMonthView (Lio/github/anjalymsajeev/kollavarsham/android/MonthGrid;Ljava/time/LocalDate;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lio/github/anjalymsajeev/kollavarsham/locale/CalendarLocale;Ljava/util/Set;Ljava/time/LocalDate;Landroidx/compose/runtime/Composer;II)V
 }
