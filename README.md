@@ -224,6 +224,6 @@ limitations under the License.
 
 ## Acknowledgements
 
-Maintained by [@anjalymsajeev](https://github.com/anjalymsajeev), with Claude (Anthropic) as co-author.
+Maintained by [@anjalymsajeev](https://github.com/anjalymsajeev).
 
 The algorithms are based on R. Sewell & S. B. Dikshit's *The Indian Calendar* and J. Meeus's *Astronomical Algorithms*. Other projects that informed this one are credited in [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md).
