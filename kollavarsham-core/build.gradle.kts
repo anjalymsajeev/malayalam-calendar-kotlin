@@ -2,6 +2,12 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
 }
 
+kotlin {
+    compilerOptions {
+        optIn.add("io.github.anjalymsajeev.kollavarsham.astronomy.KollavarshamAstronomyApi")
+    }
+}
+
 dependencies {
     api(project(":kollavarsham-astronomy"))
 

@@ -63,6 +63,13 @@ public final class io/github/anjalymsajeev/kollavarsham/core/DateValidation$Vali
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class io/github/anjalymsajeev/kollavarsham/core/ExtensionsKt {
+	public static final fun toLocalDate (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;)Ljava/time/LocalDate;
+	public static synthetic fun toLocalDate$default (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;ILjava/lang/Object;)Ljava/time/LocalDate;
+	public static final fun toMalayalamDate (Ljava/time/LocalDate;Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public static synthetic fun toMalayalamDate$default (Ljava/time/LocalDate;Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+}
+
 public final class io/github/anjalymsajeev/kollavarsham/core/GeoLocation {
 	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation$Companion;
 	public fun <init> (DDLjava/lang/String;)V
@@ -110,6 +117,8 @@ public final class io/github/anjalymsajeev/kollavarsham/core/KollavarshamCalenda
 }
 
 public final class io/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar$Companion {
+	public final fun create ()Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;
+	public final fun create (Lio/github/anjalymsajeev/kollavarsham/core/CalendarConfiguration;)Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;
 	public final fun getINDIAN_STANDARD_TIME ()Ljava/time/ZoneId;
 }
 

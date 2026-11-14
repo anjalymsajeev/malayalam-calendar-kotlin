@@ -1,5 +1,7 @@
 package io.github.anjalymsajeev.kollavarsham.core
 
+import io.github.anjalymsajeev.kollavarsham.astronomy.Ayanamsa
+import io.github.anjalymsajeev.kollavarsham.core.boundary.AstronomicalBoundarySource
 import io.github.anjalymsajeev.kollavarsham.core.boundary.BoundaryResolver
 import io.github.anjalymsajeev.kollavarsham.core.boundary.MonthBoundarySource
 import io.github.anjalymsajeev.kollavarsham.core.boundary.VerifiedOverrides
@@ -15,7 +17,7 @@ import java.time.temporal.ChronoUnit
  * computed lazily per Kollavarsham year and cached.
  *
  * ```kotlin
- * val calendar = KollavarshamCalendar.create()                        // available from Sprint 2
+ * val calendar = KollavarshamCalendar.create()
  * calendar.fromGregorian(LocalDate.of(2026, 11, 14))                  // 1202 Thulam 28
  * calendar.toGregorian(MalayalamDate(1202, MalayalamMonth.Vrischikam, 1))  // 2026-11-17
  * calendar.validate(MalayalamDate(1202, MalayalamMonth.Thulam, 31))   // DayOutOfRange(31, 30)
@@ -215,6 +217,43 @@ public class KollavarshamCalendar internal constructor(
     }
 
     public companion object {
+        /**
+         * The Lahiri convention used for month starts. Chosen in Sprint 2 from almanac evidence
+         * (CALENDAR_ALGORITHM.md §2, Q1; VALIDATION_STRATEGY.md). Deliberately not configurable.
+         */
+        internal val AYANAMSA: Ayanamsa = Ayanamsa.LahiriTrue
+
+        private val default: KollavarshamCalendar by lazy { newAstronomical(CalendarConfiguration()) }
+
+        private fun newAstronomical(configuration: CalendarConfiguration) =
+            KollavarshamCalendar(configuration, AstronomicalBoundarySource(configuration.referenceLocation, AYANAMSA))
+
+        /**
+         * The calendar with the default configuration: Thiruvananthapuram as the reference
+         * location, and the bundled verified overrides applied. Returns a shared instance.
+         *
+         * ```kotlin
+         * val calendar = KollavarshamCalendar.create()
+         * calendar.fromGregorian(LocalDate.of(2026, 11, 14))   // MalayalamDate(1202, Thulam, 28)
+         * ```
+         */
+        public fun create(): KollavarshamCalendar = default
+
+        /**
+         * A calendar with a custom [configuration].
+         *
+         * ```kotlin
+         * val northKerala = KollavarshamCalendar.create(
+         *     CalendarConfiguration(referenceLocation = GeoLocation(11.2588, 75.7804, "Kozhikode")),
+         * )
+         * ```
+         *
+         * @throws IllegalArgumentException if a month-start override makes a month shorter than 29
+         *   or longer than 32 days.
+         */
+        public fun create(configuration: CalendarConfiguration): KollavarshamCalendar =
+            if (configuration == CalendarConfiguration()) default else newAstronomical(configuration)
+
         /** Indian Standard Time, the civil time zone of the Kerala calendar. */
         public val INDIAN_STANDARD_TIME: ZoneId = ZoneId.of("Asia/Kolkata")
 
