@@ -1,0 +1,235 @@
+public final class io/github/anjalymsajeev/kollavarsham/core/BoundarySource : java/lang/Enum {
+	public static final field Computed Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;
+	public static final field UserOverride Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;
+	public static final field VerifiedOverride Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/CalendarConfiguration {
+	public fun <init> ()V
+	public fun <init> (Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;Ljava/util/Map;Z)V
+	public synthetic fun <init> (Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;Ljava/util/Map;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Z
+	public final fun copy (Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;Ljava/util/Map;Z)Lio/github/anjalymsajeev/kollavarsham/core/CalendarConfiguration;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/core/CalendarConfiguration;Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;Ljava/util/Map;ZILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/CalendarConfiguration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getApplyVerifiedOverrides ()Z
+	public final fun getMonthStartOverrides ()Ljava/util/Map;
+	public final fun getReferenceLocation ()Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/DateOutOfSupportedRangeException : io/github/anjalymsajeev/kollavarsham/core/KollavarshamException {
+	public fun <init> (Ljava/lang/String;Lkotlin/ranges/ClosedRange;)V
+	public final fun getSupportedRange ()Lkotlin/ranges/ClosedRange;
+}
+
+public abstract interface class io/github/anjalymsajeev/kollavarsham/core/DateValidation {
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/DateValidation$DayOutOfRange : io/github/anjalymsajeev/kollavarsham/core/DateValidation {
+	public fun <init> (II)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun copy (II)Lio/github/anjalymsajeev/kollavarsham/core/DateValidation$DayOutOfRange;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/core/DateValidation$DayOutOfRange;IIILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/DateValidation$DayOutOfRange;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDay ()I
+	public final fun getMonthLength ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/DateValidation$OutOfSupportedRange : io/github/anjalymsajeev/kollavarsham/core/DateValidation {
+	public fun <init> (Lkotlin/ranges/ClosedRange;)V
+	public final fun component1 ()Lkotlin/ranges/ClosedRange;
+	public final fun copy (Lkotlin/ranges/ClosedRange;)Lio/github/anjalymsajeev/kollavarsham/core/DateValidation$OutOfSupportedRange;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/core/DateValidation$OutOfSupportedRange;Lkotlin/ranges/ClosedRange;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/DateValidation$OutOfSupportedRange;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSupportedRange ()Lkotlin/ranges/ClosedRange;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/DateValidation$Valid : io/github/anjalymsajeev/kollavarsham/core/DateValidation {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/core/DateValidation$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/GeoLocation {
+	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation$Companion;
+	public fun <init> (DDLjava/lang/String;)V
+	public synthetic fun <init> (DDLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (DDLjava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;DDLjava/lang/String;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLatitude ()D
+	public final fun getLongitude ()D
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/GeoLocation$Companion {
+	public final fun getThiruvananthapuram ()Lio/github/anjalymsajeev/kollavarsham/core/GeoLocation;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/InvalidMalayalamDateException : io/github/anjalymsajeev/kollavarsham/core/KollavarshamException {
+	public fun <init> (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/core/DateValidation;)V
+	public final fun getDate ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public final fun getValidation ()Lio/github/anjalymsajeev/kollavarsham/core/DateValidation;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar {
+	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar$Companion;
+	public final fun daysBetween (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;)J
+	public final fun fromGregorian (Ljava/time/LocalDate;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public final fun getConfiguration ()Lio/github/anjalymsajeev/kollavarsham/core/CalendarConfiguration;
+	public final fun getSupportedRange ()Lkotlin/ranges/ClosedRange;
+	public final fun isValid (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;)Z
+	public final fun monthBoundary (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;)Lio/github/anjalymsajeev/kollavarsham/core/MonthBoundary;
+	public final fun monthLength (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;)I
+	public final fun monthsOf (I)Ljava/util/List;
+	public final fun plusDays (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;J)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public final fun plusMonths (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;J)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public final fun toGregorian (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;)Ljava/time/LocalDate;
+	public final fun toGregorianOrNull (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;)Ljava/time/LocalDate;
+	public final fun today (Ljava/time/Clock;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public static synthetic fun today$default (Lio/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar;Ljava/time/Clock;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public final fun validate (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;)Lio/github/anjalymsajeev/kollavarsham/core/DateValidation;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/KollavarshamCalendar$Companion {
+	public final fun getINDIAN_STANDARD_TIME ()Ljava/time/ZoneId;
+}
+
+public abstract class io/github/anjalymsajeev/kollavarsham/core/KollavarshamException : java/lang/IllegalArgumentException {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MalayalamDate : java/lang/Comparable {
+	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate$Companion;
+	public static final field MAX_DAYS_IN_MONTH I
+	public static final field MIN_DAYS_IN_MONTH I
+	public fun <init> (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;I)V
+	public fun compareTo (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;)I
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public final fun component1 ()I
+	public final fun component2 ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public final fun component3 ()I
+	public final fun copy (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;I)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;IILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamDate;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDay ()I
+	public final fun getMonth ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public final fun getYear ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MalayalamDate$Companion {
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MalayalamMonth : java/lang/Enum {
+	public static final field Chingam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth$Companion;
+	public static final field Dhanu Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Edavam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Kanni Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Karkidakam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Kumbham Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field MONTHS_PER_YEAR I
+	public static final field Makaram Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Medam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Meenam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Mithunam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Thulam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static final field Vrischikam Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getNext ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public final fun getNumber ()I
+	public final fun getPrevious ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MalayalamMonth$Companion {
+	public final fun of (I)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday : java/lang/Enum {
+	public static final field Budhan Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public static final field Chovva Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public static final field Companion Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday$Companion;
+	public static final field Njayar Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public static final field Shani Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public static final field Thinkal Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public static final field Velli Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public static final field Vyazham Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public final fun getDayOfWeek ()Ljava/time/DayOfWeek;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday$Companion {
+	public final fun of (Ljava/time/DayOfWeek;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MalayalamWeekdayKt {
+	public static final fun getMalayalamWeekday (Ljava/time/LocalDate;)Lio/github/anjalymsajeev/kollavarsham/core/MalayalamWeekday;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MonthBoundary {
+	public fun <init> (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;Ljava/time/LocalDate;Ljava/time/LocalDate;Ljava/time/Instant;Ljava/time/Duration;Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;)V
+	public final fun component1 ()I
+	public final fun component2 ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public final fun component3 ()Ljava/time/LocalDate;
+	public final fun component4 ()Ljava/time/LocalDate;
+	public final fun component5 ()Ljava/time/Instant;
+	public final fun component6 ()Ljava/time/Duration;
+	public final fun component7 ()Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;
+	public final fun contains (Ljava/time/LocalDate;)Z
+	public final fun copy (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;Ljava/time/LocalDate;Ljava/time/LocalDate;Ljava/time/Instant;Ljava/time/Duration;Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;)Lio/github/anjalymsajeev/kollavarsham/core/MonthBoundary;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/core/MonthBoundary;ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;Ljava/time/LocalDate;Ljava/time/LocalDate;Ljava/time/Instant;Ljava/time/Duration;Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/MonthBoundary;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCutoffMargin ()Ljava/time/Duration;
+	public final fun getFirstDay ()Ljava/time/LocalDate;
+	public final fun getLastDay ()Ljava/time/LocalDate;
+	public final fun getLength ()I
+	public final fun getMonth ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public final fun getSankranti ()Ljava/time/Instant;
+	public final fun getSource ()Lio/github/anjalymsajeev/kollavarsham/core/BoundarySource;
+	public final fun getYear ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/core/MonthKey : java/lang/Comparable {
+	public fun <init> (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;)V
+	public fun compareTo (Lio/github/anjalymsajeev/kollavarsham/core/MonthKey;)I
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public final fun component1 ()I
+	public final fun component2 ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public final fun copy (ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;)Lio/github/anjalymsajeev/kollavarsham/core/MonthKey;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/core/MonthKey;ILio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;ILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/core/MonthKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMonth ()Lio/github/anjalymsajeev/kollavarsham/core/MalayalamMonth;
+	public final fun getYear ()I
+	public fun hashCode ()I
+	public final fun next ()Lio/github/anjalymsajeev/kollavarsham/core/MonthKey;
+	public final fun plus (J)Lio/github/anjalymsajeev/kollavarsham/core/MonthKey;
+	public final fun previous ()Lio/github/anjalymsajeev/kollavarsham/core/MonthKey;
+	public fun toString ()Ljava/lang/String;
+}
+
