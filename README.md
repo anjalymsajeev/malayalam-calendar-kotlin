@@ -50,6 +50,22 @@ b.cutoffMargin                                                             // ~ 
 | `kollavarsham-panchangam` | Nakshatra, tithi, sunrise/sunset for a location; daily panchangam |
 | `kollavarsham-festivals` | Kerala festivals as rules (Onam, Vishu, Sivaratri, …); pluggable observance sources |
 
+## Installation
+
+```kotlin
+// build.gradle.kts
+repositories { mavenCentral() }
+
+dependencies {
+    implementation("io.github.anjalymsajeev:kollavarsham-core:0.1.0-alpha01")       // conversion
+    implementation("io.github.anjalymsajeev:kollavarsham-locale:0.1.0-alpha01")     // names, formatting
+    implementation("io.github.anjalymsajeev:kollavarsham-panchangam:0.1.0-alpha01") // nakshatra, tithi
+    implementation("io.github.anjalymsajeev:kollavarsham-festivals:0.1.0-alpha01")  // festivals
+}
+```
+
+`0.1.0-alpha01` is an early preview: the API may change before 1.0. It becomes available once the first release has been published (see [RELEASING.md](RELEASING.md)).
+
 ## Requirements
 
 - JVM 11+ bytecode.

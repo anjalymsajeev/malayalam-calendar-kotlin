@@ -5,6 +5,10 @@ All notable changes are documented here. The project follows [Semantic Versionin
 
 ## [Unreleased]
 
+### Added (release engineering)
+- Maven Central publishing (Central Portal) for the five JVM modules: signed jars, sources and Dokka javadoc jars, full POMs.
+- `release.yml` workflow (tag `v*`), and `RELEASING.md`.
+
 ### Added (Sprint 5: festival and observance engine)
 - New module `kollavarsham-festivals`: `FestivalRule` (9 rule types), `ReadingTime`, `Occurrence`, `Festival`, `FestivalCalendar`
   (`dateOf`, `candidates`, `festivalsIn`, `easter`), and 25 built-in `KeralaFestivals`.
