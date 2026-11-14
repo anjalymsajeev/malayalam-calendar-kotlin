@@ -18,4 +18,5 @@ include(
     ":kollavarsham-astronomy",
     ":kollavarsham-core",
     ":kollavarsham-locale",
+    ":kollavarsham-panchangam",
 )
