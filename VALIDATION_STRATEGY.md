@@ -104,3 +104,13 @@ Disagreements between almanacs, or between an almanac and astronomy, are logged 
 - **(c)** Contributors submitting cited dates.
 
 The highest-value months to source are the 30 borderline months, especially 2023-09-18 (Kanni 1199), 2030-06-15 (Mithunam 1205) and 2035-05-15 (Edavam 1210).
+
+## 7. Festival validation (Sprint 5)
+
+| Item | Result |
+|---|---|
+| Reference (`kollavarsham-festivals/src/test/resources/reference/festival-dates.csv`) | 126 dates, 2009–2027, for 16 festivals plus Easter |
+| In-sample (T3 dates from the Dart package's tests, with their original sources) | 116 of 116 reproduced. **Caution:** the Dart author fitted the rules to these same dates, so this mainly confirms that our independent engine implements the documented rules. |
+| **Out-of-sample** (2026–2027 dates the rules were not fitted to) | **4 of 5:** Onam 2026, Attukal Pongala 2026, Thrissur Pooram 2026 and Karkidaka Vavu 2026 match. Thrissur Pooram 2027 (announced 17 April) does not: the engine gives 14 May. |
+| Known miss: Thrissur Pooram | When Pooram falls twice in Medam, Kerala kept the later day in 2019 and announced the earlier day for 2027. No first/last rule fits both, and two cases can't justify a new rule. The miss is recorded in the dataset (`KNOWN-MISS`), and `FestivalCalendar.candidates()` shows both days. |
+| Not shipped | Ashtami Rohini (the rule is not simple), Dhanu Thiruvathira (sources disagree), Thaipooyam (no Kerala source), Islamic festivals (moon sighting). Apps can add these as dated data. |

@@ -5,8 +5,7 @@ Version: `0.1.0-alpha01` (unreleased) · Package root: `io.github.anjalymsajeev.
 The authoritative list of public declarations is in `*/api/*.api`, which CI checks on every build. This page
 explains the API with examples.
 
-> **Sprint 4 status:** conversion, localisation and the panchangam foundation (nakshatra, tithi, sunrise/sunset) are
-> complete. For a task-oriented introduction, see [docs/guide.md](docs/guide.md).
+> **Sprint 5 status:** conversion, localisation, panchangam and the festival engine are complete. For a task-oriented introduction, see [docs/guide.md](docs/guide.md).
 
 ## Artifacts
 
@@ -15,6 +14,7 @@ explains the API with examples.
 | `io.github.anjalymsajeev:kollavarsham-core` | Models, conversion, validation, arithmetic |
 | `io.github.anjalymsajeev:kollavarsham-locale` | Names, transliteration, numerals, formatting |
 | `io.github.anjalymsajeev:kollavarsham-panchangam` | Nakshatra, tithi, sunrise/sunset, daily panchangam |
+| `io.github.anjalymsajeev:kollavarsham-festivals` | Festival rules, Kerala festivals, observance providers |
 | `io.github.anjalymsajeev:kollavarsham-astronomy` | Astronomy, opt-in (`@KollavarshamAstronomyApi`), used by core |
 
 The artifacts are not yet published.
@@ -272,3 +272,68 @@ Paksha.Krishna.displayName(CalendarLocale.MALAYALAM)         // "കൃഷ്ണ
 
 span.contains(instant)                                       // start inclusive, end exclusive
 ```
+
+## kollavarsham-festivals
+
+### `FestivalCalendar`
+
+```kotlin
+val festivals = FestivalCalendar.create()                    // Kerala defaults
+festivals.dateOf(KeralaFestivals.ONAM, 1202)                 // 2026-08-26, or null if no day matches
+festivals.candidates(KeralaFestivals.THRISSUR_POORAM, 1202)  // [2027-04-17, 2027-05-14]: rule ambiguity made visible
+festivals.festivalsIn(1202)                                  // List<Observance>, sorted
+FestivalCalendar.easter(2026)                                // 2026-04-05
+
+// Custom definitions or panchangam (the providers are interfaces, so fakes work in tests)
+FestivalCalendar(calendar, panchangam, panchangam, panchangam, definitions = KeralaFestivals.all + myFestivals)
+```
+
+### `Festival` and `FestivalRule`
+
+| Rule | Example |
+|---|---|
+| `OnMalayalamDate(month, day)` | Chingam 1, Vrischikam 1, Makaram 1 |
+| `OnGregorianDate(month, day)` | Kerala Piravi (1 Nov), Christmas |
+| `FirstSunriseAfterSankranti(month)` | Vishu (Medam) |
+| `NakshatraInMonth(month, nakshatra, readingTime, occurrence)` | Onam: Thiruvonam at sunrise in Chingam, the later day |
+| `TithiInMonth(month, tithi, readingTimes, occurrence)` | Karkidaka Vavu: Amavasya at 4/5 of daylight, else at sunrise |
+| `TithiInLunarMonth(sankrantiMonth, tithi, readingTime, occurrence)` | Sivaratri, Vinayaka Chathurthi, Vijayadasami, Deepavali |
+| `FirstTithiOnOrAfter(month, day, tithi, readingTime)` | Guruvayur Ekadashi |
+| `DaysFrom(festivalId, days)` | Atham (Onam − 9), Mandala Pooja (Vrischikam 1 + 40) |
+| `DaysFromEaster(days)` | Easter, Good Friday, Maundy Thursday |
+
+`ReadingTime`: `Sunrise`, `Sunset`, `Midnight`, `FractionOfDaylight(f)`, `BeforeSunrise(minutes)`. `Occurrence`: `FIRST`, `LAST`.
+
+```kotlin
+val myTempleFestival = Festival(
+    id = "temple-utsavam",
+    englishName = "Temple Utsavam",
+    malayalamName = "ഉത്സവം",
+    category = ObservanceCategory.TEMPLE,
+    rule = FestivalRule.NakshatraInMonth(MalayalamMonth.Meenam, Nakshatra.Uthram),
+)
+```
+
+### `KeralaFestivals`
+
+The built-in definitions:
+
+- Malayalam New Year, Atham, Onam, Vishu, Karkidaka Vavu, Sivaratri, Vinayaka Chathurthi.
+- Durgashtami, Mahanavami, Vijayadasami, Deepavali.
+- Thrissur Pooram, Attukal Pongala, Guruvayur Ekadashi.
+- Mandala season start, Mandala Pooja, Makaravilakku.
+- Kerala Piravi, Republic Day, Independence Day, Gandhi Jayanti.
+- Christmas, Easter, Good Friday, Maundy Thursday.
+
+### Observance providers
+
+```kotlin
+val provider = ObservanceProvider.combine(
+    DatedObservances.fromCsv(governmentHolidaysCsv),         // dated data from the app; wins on (date, id) clashes
+    RuleBasedObservances(FestivalCalendar.create()),
+)
+provider.observances(LocalDate.of(2026, 1, 1)..LocalDate.of(2026, 12, 31))
+provider.observancesOn(LocalDate.of(2026, 8, 26))
+```
+
+The CSV header is `date,id,english_name,malayalam_name,category`. `ObservanceCategory` is `HINDU`, `CHRISTIAN`, `ISLAMIC`, `CIVIC`, `TEMPLE` or `CUSTOM`.

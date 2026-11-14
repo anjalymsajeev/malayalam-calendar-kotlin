@@ -2,7 +2,7 @@
 
 A Kotlin SDK for the Malayalam (Kollavarsham) calendar. It converts between Gregorian and Malayalam dates following the Kerala solar-month rule, works offline, is thread-safe, and keeps Android out of the core.
 
-> **Status: Sprint 4 (Panchangam foundation) complete. Not yet released (`0.1.0-alpha01`).**
+> **Status: Sprint 5 (festival and observance engine) complete. Not yet released (`0.1.0-alpha01`).**
 > Real conversion works for 1900–2100. It reproduces all 21 cited month starts in the reference dataset;
 > see [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) for what that evidence does and doesn't prove.
 
@@ -25,6 +25,9 @@ val day = Panchangam.create().day(LocalDate.of(2025, 9, 5))
 day.nakshatraAtSunrise.displayName(CalendarLocale.MALAYALAM)              // "തിരുവോണം" (Onam)
 day.tithiAtSunrise                                                         // Tithi at sunrise
 
+// Festivals (kollavarsham-festivals): rules, never stored dates
+FestivalCalendar.create().dateOf(KeralaFestivals.ONAM, 1202)               // 2026-08-26
+
 // Months where almanacs may disagree by a day:
 val b = calendar.monthBoundary(1199, MalayalamMonth.Chingam)
 b.cutoffMargin                                                             // ~ +1 minute: borderline
@@ -45,6 +48,7 @@ b.cutoffMargin                                                             // ~ 
 | `kollavarsham-core` | Models, conversion, validation, arithmetic |
 | `kollavarsham-locale` | Names, ISO 15919 transliteration, Malayalam numerals, date formatting |
 | `kollavarsham-panchangam` | Nakshatra, tithi, sunrise/sunset for a location; daily panchangam |
+| `kollavarsham-festivals` | Kerala festivals as rules (Onam, Vishu, Sivaratri, …); pluggable observance sources |
 
 ## Requirements
 

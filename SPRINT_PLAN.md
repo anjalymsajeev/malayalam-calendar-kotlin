@@ -6,8 +6,8 @@
 | 1 | Core SDK foundation | Done |
 | 2 | Calendar conversion engine and reference dataset | Done (evidence shortfall carried over) |
 | 3 | Localisation and developer experience | Done |
-| 4 | Panchangam foundation | **Done, pending review** (report below) |
-| 5 | Festival and observance engine | Planned |
+| 4 | Panchangam foundation | Done |
+| 5 | Festival and observance engine | **Done, pending review** (report below) |
 | 6 | Android SDK and sample app | Planned |
 | 7 | Production release (1.0.0) | Planned |
 
@@ -260,3 +260,31 @@ Also: Thiruvonam is the sunrise nakshatra on Onam 2023, 2024 and 2025. The build
 - Kerala festivals (Onam, Vishu, Thiruvathira, Sivaratri, …) built on the calendar and the panchangam providers.
 - A configurable data source for fixed-date observances.
 - Each rule validated against cited dates.
+
+---
+
+## Sprint 5 completion report
+
+**Objective:** Kerala festivals as rules (never stored dates), and configurable observance sources, each validated.
+
+| ID | Story | Acceptance criteria | Result |
+|---|---|---|---|
+| S5-1 | Rule model | Rules express every built-in festival; no stored dates | **Met.** 9 rule types, 5 reading times |
+| S5-2 | Kerala festival definitions | Each validated against cited dates | **Met, with one documented miss.** 25 festivals. 116/116 in-sample; 4/5 out-of-sample. |
+| S5-3 | Configurable data sources | Dated lists from data (CSV); combination with rules | **Met.** `DatedObservances`, `ObservanceProvider.combine` (dated entries win) |
+| S5-4 | Testable in isolation | Rules testable with fake panchangam providers | **Met.** Tests use a fake `NakshatraProvider` |
+| S5-5 | Transparency | Ambiguous festivals visible to apps | **Met.** `FestivalCalendar.candidates()` |
+
+The build is green: **84 tests**, ktlint, `apiCheck`.
+
+**Exit criterion** ("festival calculations and fixed-date observances are independently validated"): met for the shipped rules. The out-of-sample result is the honest measure: 4 of 5 correct. The Thrissur Pooram rule is unresolved for years where Pooram falls twice in Medam (documented, and exposed through `candidates()`).
+
+**Found and fixed during the sprint:**
+- Span walking in `Panchangam.day()` could repeat a span after millisecond rounding at a boundary (surfaced near 2100).
+- `RuleBasedObservances` could return dates past the supported range.
+
+### Next: Sprint 6 (Android SDK and sample app)
+
+- `kollavarsham-android` with an optional Compose month grid and date picker.
+- A sample app with a monthly calendar, daily details and festivals.
+- **Blocker:** Google's Maven repository (Android Gradle Plugin, AndroidX, Compose) is unreachable from this environment. It would need to be allowed in the environment's network settings, or the Android build can only be verified in CI on GitHub.

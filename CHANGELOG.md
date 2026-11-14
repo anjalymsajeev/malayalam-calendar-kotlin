@@ -5,6 +5,15 @@ All notable changes are documented here. The project follows [Semantic Versionin
 
 ## [Unreleased]
 
+### Added (Sprint 5: festival and observance engine)
+- New module `kollavarsham-festivals`: `FestivalRule` (9 rule types), `ReadingTime`, `Occurrence`, `Festival`, `FestivalCalendar`
+  (`dateOf`, `candidates`, `festivalsIn`, `easter`), and 25 built-in `KeralaFestivals`.
+- Observance sources: `ObservanceProvider`, `RuleBasedObservances`, `DatedObservances` (CSV), and `ObservanceProvider.combine`.
+- Festival reference dataset (126 dates, including 5 out-of-sample).
+
+### Fixed
+- `Panchangam.day()`: walking spans could return the same span twice after millisecond rounding at a boundary.
+
 ### Added (Sprint 4: Panchangam foundation)
 - Astronomy: `Moon.position` (abridged ELP-2000/82, Meeus ch. 47), with a generated term table (`tools/elp-gen`).
 - New module `kollavarsham-panchangam`: `Panchangam` (nakshatra, tithi, sunrise/sunset, `day()`), `PanchangamLocation`,

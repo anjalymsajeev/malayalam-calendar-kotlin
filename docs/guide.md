@@ -141,6 +141,28 @@ println("${star.value} until ${star.end.atZone(KollavarshamCalendar.INDIAN_STAND
 
 Elements are read at sunrise, following the Kerala convention. `today.nakshatras` and `today.tithis` list every span until the next sunrise, so you can apply other rules yourself.
 
-## 9. A complete example
+## 9. Festivals and observances
+
+Add `io.github.anjalymsajeev:kollavarsham-festivals`.
+
+```kotlin
+val festivals = FestivalCalendar.create()
+festivals.festivalsIn(1202).forEach { println("${it.date}  ${it.name(CalendarLocale.MALAYALAM)}") }
+
+// Where sources may disagree, show the alternatives:
+val days = festivals.candidates(KeralaFestivals.THRISSUR_POORAM, 1202)
+if (days.size > 1) println("Thrissur Pooram: ${days.first()} (some calendars: ${days.last()})")
+
+// Add a government holiday list, moon-sighted Eid dates or family events as data:
+val provider = ObservanceProvider.combine(
+    DatedObservances.fromCsv(myCsv),
+    RuleBasedObservances(festivals),
+)
+provider.observancesOn(LocalDate.of(2026, 8, 26))
+```
+
+Islamic festivals aren't computed, because their dates follow moon sighting. Supply announced dates through `DatedObservances`.
+
+## 10. A complete example
 
 [`samples/jvm-consumer`](../samples/jvm-consumer) is a standalone project that consumes the published artifacts. It prints a formatted date and the months of a year.
