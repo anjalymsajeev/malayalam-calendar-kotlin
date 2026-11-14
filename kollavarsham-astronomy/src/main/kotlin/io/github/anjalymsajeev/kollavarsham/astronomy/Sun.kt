@@ -27,7 +27,6 @@ public data class SolarPosition(
  */
 @KollavarshamAstronomyApi
 public object Sun {
-
     /** Apparent position at the Julian Ephemeris Day [jde] (Terrestrial Time). */
     public fun position(jde: Double): SolarPosition {
         val tau = (jde - J2000) / 365250.0
@@ -56,7 +55,10 @@ public object Sun {
         return SolarPosition(lambda, beta, normalizeDegrees(ra * DEG_PER_RAD), dec * DEG_PER_RAD, nutation.longitude)
     }
 
-    private fun series(powers: Array<DoubleArray>, tau: Double): Double {
+    private fun series(
+        powers: Array<DoubleArray>,
+        tau: Double,
+    ): Double {
         var result = 0.0
         var tauPower = 1.0
         for (terms in powers) {
@@ -77,7 +79,11 @@ public object Sun {
  * Nutation and obliquity using Meeus's abridged series (ch. 22): nutation in longitude to
  * 0.5", in obliquity to 0.1".
  */
-internal data class Nutation(val longitude: Double, val obliquity: Double, val meanObliquity: Double) {
+internal data class Nutation(
+    val longitude: Double,
+    val obliquity: Double,
+    val meanObliquity: Double,
+) {
     val trueObliquity: Double get() = meanObliquity + obliquity
 
     companion object {
@@ -87,8 +93,9 @@ internal data class Nutation(val longitude: Double, val obliquity: Double, val m
             val lMoon = (218.3165 + 481267.8813 * t).toRadians()
             val dPsi = -17.20 * sin(omega) - 1.32 * sin(2 * l) - 0.23 * sin(2 * lMoon) + 0.21 * sin(2 * omega)
             val dEps = 9.20 * cos(omega) + 0.57 * cos(2 * l) + 0.10 * cos(2 * lMoon) - 0.09 * cos(2 * omega)
-            val eps0 = 23.0 + 26.0 / 60 + 21.448 / 3600 -
-                (46.8150 * t + 0.00059 * t * t - 0.001813 * t * t * t) / ARCSEC_PER_DEG
+            val eps0 =
+                23.0 + 26.0 / 60 + 21.448 / 3600 -
+                    (46.8150 * t + 0.00059 * t * t - 0.001813 * t * t * t) / ARCSEC_PER_DEG
             return Nutation(dPsi / ARCSEC_PER_DEG, dEps / ARCSEC_PER_DEG, eps0)
         }
     }

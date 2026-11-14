@@ -14,10 +14,14 @@ import kotlin.test.assertTrue
 private val IST: ZoneId = ZoneId.of("Asia/Kolkata")
 
 private fun resourceLines(name: String): List<String> =
-    AstronomyTest::class.java.getResourceAsStream("/reference/$name")!!.bufferedReader().readLines().drop(1).filter { it.isNotBlank() }
+    AstronomyTest::class.java
+        .getResourceAsStream("/reference/$name")!!
+        .bufferedReader()
+        .readLines()
+        .drop(1)
+        .filter { it.isNotBlank() }
 
 class AstronomyTest {
-
     @Test fun `Meeus example 25b - apparent solar position on 1992 Oct 13 0h TD`() {
         val sun = Sun.position(2448908.5)
         // Meeus (full VSOP87 and full IAU 1980 nutation): lambda = 199°54'21.818", alpha = 198.378178°, delta = -7.783872°.
@@ -55,7 +59,10 @@ class AstronomyTest {
         var count = 0
         resourceLines("sankranti-1899-2101.csv").forEach { line ->
             val (rashi, trueUtc, drikUtc) = line.split(',')
-            for ((ayanamsa, expected) in listOf(Ayanamsa.LahiriTrue to Instant.parse(trueUtc), Ayanamsa.LahiriDrikCalibrated to Instant.parse(drikUtc))) {
+            for ((ayanamsa, expected) in listOf(
+                Ayanamsa.LahiriTrue to Instant.parse(trueUtc),
+                Ayanamsa.LahiriDrikCalibrated to Instant.parse(drikUtc),
+            )) {
                 val found = Sankranti.find(rashi.toInt(), expected.plus(Duration.ofDays(3)), ayanamsa)
                 val diff = Duration.between(expected, found).abs()
                 if (diff > worst) worst = diff

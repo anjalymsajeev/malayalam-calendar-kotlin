@@ -20,7 +20,10 @@ public enum class Ayanamsa {
     ;
 
     /** Ayanamsa in degrees at the Julian Ephemeris Day [jde], given the Sun's [nutationInLongitude] in degrees. */
-    public fun degrees(jde: Double, nutationInLongitude: Double): Double {
+    public fun degrees(
+        jde: Double,
+        nutationInLongitude: Double,
+    ): Double {
         val t = (jde - J2000) / DAYS_PER_JULIAN_CENTURY
         return when (this) {
             LahiriTrue -> 23.250182778 + (precession(t) - precession(T_1956)) / ARCSEC_PER_DEG + nutationInLongitude

@@ -33,8 +33,10 @@ public data class CalendarConfiguration(
  * key.next()        // MonthKey(1202, Dhanu)
  * ```
  */
-public data class MonthKey(val year: Int, val month: MalayalamMonth) : Comparable<MonthKey> {
-
+public data class MonthKey(
+    val year: Int,
+    val month: MalayalamMonth,
+) : Comparable<MonthKey> {
     /** Months since the start of ME year 0, used for ordering and arithmetic. */
     internal val index: Long get() = year.toLong() * MalayalamMonth.MONTHS_PER_YEAR + month.ordinal
 

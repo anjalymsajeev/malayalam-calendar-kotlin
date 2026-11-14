@@ -24,5 +24,4 @@ public fun LocalDate.toMalayalamDate(calendar: KollavarshamCalendar = Kollavarsh
  * @throws InvalidMalayalamDateException if the day does not exist in that month.
  * @throws DateOutOfSupportedRangeException outside the supported range.
  */
-public fun MalayalamDate.toLocalDate(calendar: KollavarshamCalendar = KollavarshamCalendar.create()): LocalDate =
-    calendar.toGregorian(this)
+public fun MalayalamDate.toLocalDate(calendar: KollavarshamCalendar = KollavarshamCalendar.create()): LocalDate = calendar.toGregorian(this)

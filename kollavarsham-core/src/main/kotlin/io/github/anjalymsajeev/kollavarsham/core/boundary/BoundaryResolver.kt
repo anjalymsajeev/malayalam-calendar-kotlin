@@ -21,10 +21,11 @@ internal class BoundaryResolver(
     verifiedOverrides: Map<MonthKey, LocalDate>,
     userOverrides: Map<MonthKey, LocalDate>,
 ) {
-    private val overrides: Map<MonthKey, Pair<LocalDate, BoundarySource>> = buildMap {
-        verifiedOverrides.forEach { (key, date) -> put(key, date to BoundarySource.VerifiedOverride) }
-        userOverrides.forEach { (key, date) -> put(key, date to BoundarySource.UserOverride) }
-    }
+    private val overrides: Map<MonthKey, Pair<LocalDate, BoundarySource>> =
+        buildMap {
+            verifiedOverrides.forEach { (key, date) -> put(key, date to BoundarySource.VerifiedOverride) }
+            userOverrides.forEach { (key, date) -> put(key, date to BoundarySource.UserOverride) }
+        }
 
     private val cache = ConcurrentHashMap<Int, List<MonthBoundary>>()
 

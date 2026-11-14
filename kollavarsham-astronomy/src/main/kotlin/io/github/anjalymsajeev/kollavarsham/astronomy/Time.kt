@@ -12,16 +12,14 @@ public object AstroTime {
     private const val SECONDS_PER_DAY = 86400.0
 
     /** Julian Day (UT) of [instant]. */
-    public fun julianDayUt(instant: Instant): Double =
-        UNIX_EPOCH_JD + (instant.epochSecond + instant.nano / 1e9) / SECONDS_PER_DAY
+    public fun julianDayUt(instant: Instant): Double = UNIX_EPOCH_JD + (instant.epochSecond + instant.nano / 1e9) / SECONDS_PER_DAY
 
     /** Converts a Julian Day (UT) back to an [Instant], rounded to the millisecond. */
     public fun instantOf(julianDayUt: Double): Instant =
         Instant.ofEpochMilli(Math.round((julianDayUt - UNIX_EPOCH_JD) * SECONDS_PER_DAY * 1000.0))
 
     /** Julian Ephemeris Day (Terrestrial Time) of the UT Julian Day [julianDayUt]. */
-    public fun julianEphemerisDay(julianDayUt: Double): Double =
-        julianDayUt + DeltaT.seconds(decimalYear(julianDayUt)) / SECONDS_PER_DAY
+    public fun julianEphemerisDay(julianDayUt: Double): Double = julianDayUt + DeltaT.seconds(decimalYear(julianDayUt)) / SECONDS_PER_DAY
 
     internal fun decimalYear(julianDay: Double): Double = 2000.0 + (julianDay - J2000) / 365.25
 }
@@ -33,7 +31,6 @@ public object AstroTime {
  */
 @KollavarshamAstronomyApi
 public object DeltaT {
-
     /** Range of decimal years covered by the fits. */
     public val supportedYears: ClosedFloatingPointRange<Double> = 1860.0..2150.0
 

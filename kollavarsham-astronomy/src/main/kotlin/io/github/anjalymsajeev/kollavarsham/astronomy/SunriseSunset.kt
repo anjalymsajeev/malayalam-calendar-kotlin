@@ -15,20 +15,33 @@ import kotlin.math.sin
  */
 @KollavarshamAstronomyApi
 public object SunriseSunset {
-
     private const val STANDARD_ALTITUDE = -0.8333
     private const val SIDEREAL_DEGREES_PER_DAY = 360.98564736629
     private const val MAX_ITERATIONS = 12
 
     /** Sunrise on the civil [date] in [zone] at [latitude], [longitude] (degrees, east positive), or `null` if the Sun does not rise. */
-    public fun sunrise(date: LocalDate, latitude: Double, longitude: Double, zone: ZoneId): Instant? =
-        event(date, latitude, longitude, zone, rising = true)
+    public fun sunrise(
+        date: LocalDate,
+        latitude: Double,
+        longitude: Double,
+        zone: ZoneId,
+    ): Instant? = event(date, latitude, longitude, zone, rising = true)
 
     /** Sunset on the civil [date] in [zone]; `null` if the Sun does not set. */
-    public fun sunset(date: LocalDate, latitude: Double, longitude: Double, zone: ZoneId): Instant? =
-        event(date, latitude, longitude, zone, rising = false)
+    public fun sunset(
+        date: LocalDate,
+        latitude: Double,
+        longitude: Double,
+        zone: ZoneId,
+    ): Instant? = event(date, latitude, longitude, zone, rising = false)
 
-    private fun event(date: LocalDate, latitude: Double, longitude: Double, zone: ZoneId, rising: Boolean): Instant? {
+    private fun event(
+        date: LocalDate,
+        latitude: Double,
+        longitude: Double,
+        zone: ZoneId,
+        rising: Boolean,
+    ): Instant? {
         val localNoon = date.atTime(12, 0).atZone(zone).toInstant()
         var jd = AstroTime.julianDayUt(localNoon)
         val phi = latitude.toRadians()

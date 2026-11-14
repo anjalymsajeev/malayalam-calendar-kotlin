@@ -18,11 +18,15 @@ internal class AstronomicalBoundarySource(
     private val location: GeoLocation,
     private val ayanamsa: Ayanamsa,
 ) : MonthBoundarySource {
-
     override fun monthStart(key: MonthKey): ComputedMonthStart {
         // Chingam (ordinal 0) is Simha (rashi 4); Medam (ordinal 8) is Mesha (rashi 0).
         val rashi = (key.month.ordinal + 4) % 12
-        val sankranti = Sankranti.find(rashi, estimate(key, rashi).atStartOfDay(KollavarshamCalendar.INDIAN_STANDARD_TIME).toInstant(), ayanamsa)
+        val sankranti =
+            Sankranti.find(
+                rashi,
+                estimate(key, rashi).atStartOfDay(KollavarshamCalendar.INDIAN_STANDARD_TIME).toInstant(),
+                ayanamsa,
+            )
 
         val day = sankranti.atZone(KollavarshamCalendar.INDIAN_STANDARD_TIME).toLocalDate()
         val zone = KollavarshamCalendar.INDIAN_STANDARD_TIME
@@ -38,7 +42,10 @@ internal class AstronomicalBoundarySource(
     }
 
     /** Mean date of the sankranti: Mesha around 14 April, then one rashi per 30.44 days. */
-    private fun estimate(key: MonthKey, rashi: Int): LocalDate {
+    private fun estimate(
+        key: MonthKey,
+        rashi: Int,
+    ): LocalDate {
         // Months up to Meenam (ordinal 7) start in the Gregorian year ME + 824 or early the next;
         // Medam..Karkidakam (ordinals 8..11) in ME + 825.
         val meshaYear = key.year + KollavarshamCalendar.CHINGAM_GREGORIAN_OFFSET + if (key.month.ordinal >= 8) 1 else 0

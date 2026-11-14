@@ -17,15 +17,16 @@ import java.util.concurrent.atomic.AtomicInteger
 internal class SyntheticBoundarySource : MonthBoundarySource {
     val calls = AtomicInteger()
 
-    private val starts: Map<MonthKey, LocalDate> = buildMap {
-        var key = MonthKey(FIRST_YEAR, MalayalamMonth.Chingam)
-        var day = LocalDate.of(1894, 8, 17)
-        while (key.year <= LAST_YEAR) {
-            put(key, day)
-            day = day.plusDays(lengthOf(key).toLong())
-            key = key.next()
+    private val starts: Map<MonthKey, LocalDate> =
+        buildMap {
+            var key = MonthKey(FIRST_YEAR, MalayalamMonth.Chingam)
+            var day = LocalDate.of(1894, 8, 17)
+            while (key.year <= LAST_YEAR) {
+                put(key, day)
+                day = day.plusDays(lengthOf(key).toLong())
+                key = key.next()
+            }
         }
-    }
 
     override fun monthStart(key: MonthKey): ComputedMonthStart {
         calls.incrementAndGet()

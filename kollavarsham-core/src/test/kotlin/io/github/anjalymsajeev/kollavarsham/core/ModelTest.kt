@@ -13,7 +13,20 @@ import kotlin.test.assertTrue
 class MalayalamMonthTest {
     @Test fun `months are in Chingam-first order with numbers 1 to 12`() {
         assertEquals(
-            listOf("Chingam", "Kanni", "Thulam", "Vrischikam", "Dhanu", "Makaram", "Kumbham", "Meenam", "Medam", "Edavam", "Mithunam", "Karkidakam"),
+            listOf(
+                "Chingam",
+                "Kanni",
+                "Thulam",
+                "Vrischikam",
+                "Dhanu",
+                "Makaram",
+                "Kumbham",
+                "Meenam",
+                "Medam",
+                "Edavam",
+                "Mithunam",
+                "Karkidakam",
+            ),
             MalayalamMonth.entries.map { it.name },
         )
         MalayalamMonth.entries.forEachIndexed { i, m -> assertEquals(i + 1, m.number) }
@@ -38,7 +51,13 @@ class MalayalamMonthTest {
 class MalayalamWeekdayTest {
     @Test fun `maps one to one to DayOfWeek`() {
         DayOfWeek.entries.forEach { assertEquals(it, MalayalamWeekday.of(it).dayOfWeek) }
-        assertEquals(7, MalayalamWeekday.entries.map { it.dayOfWeek }.toSet().size)
+        assertEquals(
+            7,
+            MalayalamWeekday.entries
+                .map { it.dayOfWeek }
+                .toSet()
+                .size,
+        )
         assertEquals(MalayalamWeekday.Njayar, MalayalamWeekday.of(DayOfWeek.SUNDAY))
     }
 
@@ -57,12 +76,13 @@ class MalayalamDateTest {
     }
 
     @Test fun `ordering is by year, then month, then day`() {
-        val dates = listOf(
-            MalayalamDate(1201, MalayalamMonth.Karkidakam, 32),
-            MalayalamDate(1202, MalayalamMonth.Chingam, 1),
-            MalayalamDate(1202, MalayalamMonth.Chingam, 2),
-            MalayalamDate(1202, MalayalamMonth.Kanni, 1),
-        )
+        val dates =
+            listOf(
+                MalayalamDate(1201, MalayalamMonth.Karkidakam, 32),
+                MalayalamDate(1202, MalayalamMonth.Chingam, 1),
+                MalayalamDate(1202, MalayalamMonth.Chingam, 2),
+                MalayalamDate(1202, MalayalamMonth.Kanni, 1),
+            )
         assertEquals(dates, dates.shuffled(kotlin.random.Random(7)).sorted())
     }
 
@@ -92,8 +112,17 @@ class GeoLocationTest {
 }
 
 class MonthBoundaryTest {
-    private fun boundary(first: LocalDate, last: LocalDate) = MonthBoundary(
-        1202, MalayalamMonth.Thulam, first, last, Instant.EPOCH, Duration.ZERO, BoundarySource.Computed,
+    private fun boundary(
+        first: LocalDate,
+        last: LocalDate,
+    ) = MonthBoundary(
+        1202,
+        MalayalamMonth.Thulam,
+        first,
+        last,
+        Instant.EPOCH,
+        Duration.ZERO,
+        BoundarySource.Computed,
     )
 
     @Test fun `length must be 29 to 32 days`() {

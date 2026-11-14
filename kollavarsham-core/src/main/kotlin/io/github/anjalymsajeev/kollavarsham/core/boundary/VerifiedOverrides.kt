@@ -12,20 +12,22 @@ import java.time.LocalDate
  * where `month` is a [MalayalamMonth] name and `first_day` an ISO date.
  */
 internal object VerifiedOverrides {
-
     private const val RESOURCE = "verified-overrides.csv"
 
     val bundled: Map<MonthKey, LocalDate> by lazy {
-        val stream = VerifiedOverrides::class.java.getResourceAsStream(RESOURCE)
-            ?: error("Missing bundled resource $RESOURCE")
+        val stream =
+            VerifiedOverrides::class.java.getResourceAsStream(RESOURCE)
+                ?: error("Missing bundled resource $RESOURCE")
         stream.bufferedReader(Charsets.UTF_8).use { parse(it.readText()) }
     }
 
     fun parse(csv: String): Map<MonthKey, LocalDate> {
-        val rows = csv.lineSequence()
-            .map { it.trim() }
-            .filter { it.isNotEmpty() && !it.startsWith("#") }
-            .toList()
+        val rows =
+            csv
+                .lineSequence()
+                .map { it.trim() }
+                .filter { it.isNotEmpty() && !it.startsWith("#") }
+                .toList()
         require(rows.firstOrNull() == "me_year,month,first_day,source_citation") {
             "Unexpected header in $RESOURCE: ${rows.firstOrNull()}"
         }

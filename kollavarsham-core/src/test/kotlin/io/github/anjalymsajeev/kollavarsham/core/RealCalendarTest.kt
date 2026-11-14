@@ -14,8 +14,12 @@ class RealCalendarTest {
     private val calendar = KollavarshamCalendar.create()
 
     private fun resource(name: String): List<String> =
-        RealCalendarTest::class.java.getResourceAsStream("/reference/$name")!!.bufferedReader().readLines()
-            .filter { it.isNotBlank() && !it.startsWith("#") }.drop(1)
+        RealCalendarTest::class.java
+            .getResourceAsStream("/reference/$name")!!
+            .bufferedReader()
+            .readLines()
+            .filter { it.isNotBlank() && !it.startsWith("#") }
+            .drop(1)
 
     @Test fun `every observed month start in the reference dataset is reproduced`() {
         val rows = resource("month-starts.csv")
@@ -105,15 +109,19 @@ class RealCalendarTest {
     @Test fun `borderline month list is unchanged`() {
         val raw = KollavarshamCalendar.create(CalendarConfiguration(applyVerifiedOverrides = false))
         val format = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
-        val actual = (1075..1276).flatMap { raw.monthsOf(it) }
-            .filter { it.cutoffMargin.abs() < Duration.ofMinutes(10) }
-            .map { b ->
-                listOf(
-                    b.year, b.month, b.firstDay,
-                    b.sankranti.atZone(KollavarshamCalendar.INDIAN_STANDARD_TIME).format(format),
-                    "%.1f".format(java.util.Locale.ROOT, b.cutoffMargin.toMillis() / 60000.0),
-                ).joinToString(",")
-            }
+        val actual =
+            (1075..1276)
+                .flatMap { raw.monthsOf(it) }
+                .filter { it.cutoffMargin.abs() < Duration.ofMinutes(10) }
+                .map { b ->
+                    listOf(
+                        b.year,
+                        b.month,
+                        b.firstDay,
+                        b.sankranti.atZone(KollavarshamCalendar.INDIAN_STANDARD_TIME).format(format),
+                        "%.1f".format(java.util.Locale.ROOT, b.cutoffMargin.toMillis() / 60000.0),
+                    ).joinToString(",")
+                }
         val expected = resource("borderline-months.csv")
         assertEquals(expected, actual, "Borderline months changed. Actual list:\n" + actual.joinToString("\n"))
     }

@@ -13,7 +13,9 @@ import java.time.LocalDate
  *
  * @property dayOfWeek the equivalent ISO day of week.
  */
-public enum class MalayalamWeekday(public val dayOfWeek: DayOfWeek) {
+public enum class MalayalamWeekday(
+    public val dayOfWeek: DayOfWeek,
+) {
     /** Sunday (ഞായർ). */
     Njayar(DayOfWeek.SUNDAY),
 

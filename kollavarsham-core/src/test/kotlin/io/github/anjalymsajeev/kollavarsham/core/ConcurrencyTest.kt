@@ -16,11 +16,13 @@ class ConcurrencyTest {
         val shared = SyntheticBoundarySource.calendar()
         val pool = Executors.newFixedThreadPool(32)
         try {
-            val results = pool.invokeAll(
-                (0 until 32).map { t ->
-                    Callable { days.indices.filter { it % 32 == t }.map { it to shared.fromGregorian(days[it]) } }
-                },
-            ).flatMap { it.get() }
+            val results =
+                pool
+                    .invokeAll(
+                        (0 until 32).map { t ->
+                            Callable { days.indices.filter { it % 32 == t }.map { it to shared.fromGregorian(days[it]) } }
+                        },
+                    ).flatMap { it.get() }
             results.forEach { (i, date) -> assertEquals(expected[i], date, "index $i") }
         } finally {
             pool.shutdown()

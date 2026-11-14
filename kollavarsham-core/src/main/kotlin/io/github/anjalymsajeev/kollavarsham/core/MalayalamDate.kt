@@ -23,7 +23,6 @@ public data class MalayalamDate(
     val month: MalayalamMonth,
     val day: Int,
 ) : Comparable<MalayalamDate> {
-
     init {
         require(year >= 1) { "Kollavarsham year must be positive, was $year" }
         require(day in 1..MAX_DAYS_IN_MONTH) { "Day must be in 1..$MAX_DAYS_IN_MONTH, was $day" }

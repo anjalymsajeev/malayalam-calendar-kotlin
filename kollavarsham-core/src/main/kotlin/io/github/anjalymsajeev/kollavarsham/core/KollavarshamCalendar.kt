@@ -30,11 +30,12 @@ public class KollavarshamCalendar internal constructor(
     source: MonthBoundarySource,
     verifiedOverrides: Map<MonthKey, LocalDate> = VerifiedOverrides.bundled,
 ) {
-    private val boundaries = BoundaryResolver(
-        source = source,
-        verifiedOverrides = if (configuration.applyVerifiedOverrides) verifiedOverrides else emptyMap(),
-        userOverrides = configuration.monthStartOverrides,
-    )
+    private val boundaries =
+        BoundaryResolver(
+            source = source,
+            verifiedOverrides = if (configuration.applyVerifiedOverrides) verifiedOverrides else emptyMap(),
+            userOverrides = configuration.monthStartOverrides,
+        )
 
     /** Gregorian dates this calendar converts and validates. Outside it, conversions throw. */
     public val supportedRange: ClosedRange<LocalDate> get() = SUPPORTED_RANGE
@@ -83,8 +84,7 @@ public class KollavarshamCalendar internal constructor(
      * calendar.toGregorianOrNull(MalayalamDate(1202, MalayalamMonth.Thulam, 31))   // null
      * ```
      */
-    public fun toGregorianOrNull(date: MalayalamDate): LocalDate? =
-        if (validate(date) == DateValidation.Valid) unchecked(date) else null
+    public fun toGregorianOrNull(date: MalayalamDate): LocalDate? = if (validate(date) == DateValidation.Valid) unchecked(date) else null
 
     // ---------------------------------------------------------------- validation
 
@@ -123,7 +123,10 @@ public class KollavarshamCalendar internal constructor(
      *
      * @throws DateOutOfSupportedRangeException if [year] is outside the supported years.
      */
-    public fun monthBoundary(year: Int, month: MalayalamMonth): MonthBoundary {
+    public fun monthBoundary(
+        year: Int,
+        month: MalayalamMonth,
+    ): MonthBoundary {
         requireSupportedYear(year)
         return boundaries.boundary(MonthKey(year, month))
     }
@@ -135,7 +138,10 @@ public class KollavarshamCalendar internal constructor(
      * calendar.monthLength(1202, MalayalamMonth.Thulam)   // 30
      * ```
      */
-    public fun monthLength(year: Int, month: MalayalamMonth): Int = monthBoundary(year, month).length
+    public fun monthLength(
+        year: Int,
+        month: MalayalamMonth,
+    ): Int = monthBoundary(year, month).length
 
     /**
      * All twelve months of [year], Chingam first.
@@ -161,8 +167,10 @@ public class KollavarshamCalendar internal constructor(
      * @throws InvalidMalayalamDateException if [date] does not exist.
      * @throws DateOutOfSupportedRangeException if the input or result is outside [supportedRange].
      */
-    public fun plusDays(date: MalayalamDate, days: Long): MalayalamDate =
-        fromGregorian(toGregorian(date).plusDays(days))
+    public fun plusDays(
+        date: MalayalamDate,
+        days: Long,
+    ): MalayalamDate = fromGregorian(toGregorian(date).plusDays(days))
 
     /**
      * The same day [months] months later (earlier, if negative). The day is clamped to the
@@ -175,7 +183,10 @@ public class KollavarshamCalendar internal constructor(
      * @throws InvalidMalayalamDateException if [date] does not exist.
      * @throws DateOutOfSupportedRangeException if the input or result is outside [supportedRange].
      */
-    public fun plusMonths(date: MalayalamDate, months: Long): MalayalamDate {
+    public fun plusMonths(
+        date: MalayalamDate,
+        months: Long,
+    ): MalayalamDate {
         toGregorian(date) // validates the input
         val target = MonthKey(date.year, date.month).plus(months)
         if (target.year !in SUPPORTED_YEARS) {
@@ -193,8 +204,10 @@ public class KollavarshamCalendar internal constructor(
      * calendar.daysBetween(MalayalamDate(1202, MalayalamMonth.Chingam, 1), MalayalamDate(1203, MalayalamMonth.Chingam, 1))   // 365 or 366
      * ```
      */
-    public fun daysBetween(start: MalayalamDate, endExclusive: MalayalamDate): Long =
-        ChronoUnit.DAYS.between(toGregorian(start), toGregorian(endExclusive))
+    public fun daysBetween(
+        start: MalayalamDate,
+        endExclusive: MalayalamDate,
+    ): Long = ChronoUnit.DAYS.between(toGregorian(start), toGregorian(endExclusive))
 
     /**
      * Today's Kollavarsham date according to [clock], which defaults to the system clock in

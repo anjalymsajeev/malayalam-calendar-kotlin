@@ -17,7 +17,9 @@ package io.github.anjalymsajeev.kollavarsham.core
  *
  * @property number position in the year, 1 (Chingam) to 12 (Karkidakam).
  */
-public enum class MalayalamMonth(public val number: Int) {
+public enum class MalayalamMonth(
+    public val number: Int,
+) {
     /** Simha rashi; begins mid-August and starts the year. */
     Chingam(1),
 

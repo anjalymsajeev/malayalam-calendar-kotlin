@@ -16,19 +16,25 @@ import java.time.LocalDate
  * ```
  */
 public sealed interface DateValidation {
-
     /** The date exists and is within the supported range. */
     public data object Valid : DateValidation
 
     /** The day number exceeds this year's length of the month. */
-    public data class DayOutOfRange(val day: Int, val monthLength: Int) : DateValidation
+    public data class DayOutOfRange(
+        val day: Int,
+        val monthLength: Int,
+    ) : DateValidation
 
     /** The date is outside [supportedRange]. */
-    public data class OutOfSupportedRange(val supportedRange: ClosedRange<LocalDate>) : DateValidation
+    public data class OutOfSupportedRange(
+        val supportedRange: ClosedRange<LocalDate>,
+    ) : DateValidation
 }
 
 /** Base class of all exceptions thrown by the SDK for invalid input. */
-public sealed class KollavarshamException(message: String) : IllegalArgumentException(message)
+public sealed class KollavarshamException(
+    message: String,
+) : IllegalArgumentException(message)
 
 /**
  * Thrown when a [MalayalamDate] does not exist, for example day 31 of a 30-day month.
