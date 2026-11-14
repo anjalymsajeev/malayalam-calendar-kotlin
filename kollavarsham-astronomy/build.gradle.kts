@@ -2,4 +2,15 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
 }
 
-// Sprint 1: skeleton only. Solar position, ΔT, sunrise and sankranti arrive in Sprint 2.
+kotlin {
+    compilerOptions {
+        optIn.add("io.github.anjalymsajeev.kollavarsham.astronomy.KollavarshamAstronomyApi")
+    }
+}
+
+dependencies {
+    testImplementation(kotlin("test"))
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.launcher)
+}
