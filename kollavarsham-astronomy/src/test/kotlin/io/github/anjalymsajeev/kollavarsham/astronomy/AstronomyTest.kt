@@ -102,3 +102,14 @@ class AstronomyTest {
         assertNull(SunriseSunset.sunrise(LocalDate.of(2026, 12, 21), 80.0, 0.0, ZoneId.of("UTC")))
     }
 }
+
+class MoonTest {
+    @Test fun `Meeus example 47a - Moon on 1992 April 12 0h TD`() {
+        val moon = Moon.position(2448724.5)
+        // Meeus: apparent longitude 133.167265° (geometric 133.162655° + nutation 0.004610°),
+        // latitude -3.229126°, distance 368409.7 km. Our abridged nutation differs by ~0.1".
+        assertTrue(abs(moon.longitude - 133.167265) * 3600 < 1.0, "longitude ${moon.longitude}")
+        assertTrue(abs(moon.latitude + 3.229126) * 3600 < 0.5, "latitude ${moon.latitude}")
+        assertTrue(abs(moon.distanceKm - 368409.7) < 0.5, "distance ${moon.distanceKm}")
+    }
+}

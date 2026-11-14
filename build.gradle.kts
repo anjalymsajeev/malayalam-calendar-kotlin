@@ -42,7 +42,7 @@ subprojects {
 
         extensions.configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
             version.set(rootProject.libs.versions.ktlint.get())
-            filter { exclude { it.file.name == "Vsop87Earth.kt" } } // generated
+            filter { exclude { it.file.name == "Vsop87Earth.kt" || it.file.name == "MoonTerms.kt" } } // generated
         }
 
         tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {

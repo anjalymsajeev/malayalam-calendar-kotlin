@@ -24,6 +24,28 @@ public final class io/github/anjalymsajeev/kollavarsham/astronomy/DeltaT {
 public abstract interface annotation class io/github/anjalymsajeev/kollavarsham/astronomy/KollavarshamAstronomyApi : java/lang/annotation/Annotation {
 }
 
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/LunarPosition {
+	public fun <init> (DDDD)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()D
+	public final fun component4 ()D
+	public final fun copy (DDDD)Lio/github/anjalymsajeev/kollavarsham/astronomy/LunarPosition;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/astronomy/LunarPosition;DDDDILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/astronomy/LunarPosition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistanceKm ()D
+	public final fun getLatitude ()D
+	public final fun getLongitude ()D
+	public final fun getNutationInLongitude ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/Moon {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/astronomy/Moon;
+	public final fun position (D)Lio/github/anjalymsajeev/kollavarsham/astronomy/LunarPosition;
+}
+
 public final class io/github/anjalymsajeev/kollavarsham/astronomy/Sankranti {
 	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/astronomy/Sankranti;
 	public final fun find (ILjava/time/Instant;Lio/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa;)Ljava/time/Instant;
