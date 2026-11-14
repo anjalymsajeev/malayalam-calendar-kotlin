@@ -18,11 +18,11 @@ dependencyResolutionManagement { repositories { mavenLocal(); mavenCentral() } }
 
 // build.gradle.kts
 dependencies {
-    implementation("io.github.anjalymsajeev:kollavarsham-locale:0.1.0-alpha01") // includes kollavarsham-core
+    implementation("io.github.anjalymsajeev:kollavarsham-festivals:0.1.0-alpha01") // brings panchangam, locale, core
 }
 ```
 
-Use `kollavarsham-core` alone if you don't need names or formatting.
+One dependency is enough: each module brings the ones below it (festivals → panchangam → locale → core → astronomy). Choose a lower module if you need less, for example `kollavarsham-core` for conversion only. For the Compose calendar view, add `kollavarsham-android` as well.
 
 **Android:** the API uses `java.time`. It is built in from API 26; below that, enable [core library desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring).
 

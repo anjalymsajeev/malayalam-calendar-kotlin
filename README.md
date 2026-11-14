@@ -55,18 +55,30 @@ b.cutoffMargin                                                             // ~ 
 
 ## Installation
 
+Add **one** dependency; the modules it needs come with it automatically.
+
 ```kotlin
 // build.gradle.kts
 repositories { mavenCentral() }
 
 dependencies {
-    implementation("io.github.anjalymsajeev:kollavarsham-core:0.1.0-alpha01")       // conversion
-    implementation("io.github.anjalymsajeev:kollavarsham-locale:0.1.0-alpha01")     // names, formatting
-    implementation("io.github.anjalymsajeev:kollavarsham-panchangam:0.1.0-alpha01") // nakshatra, tithi
-    implementation("io.github.anjalymsajeev:kollavarsham-festivals:0.1.0-alpha01")  // festivals
-    implementation("io.github.anjalymsajeev:kollavarsham-android:0.1.0-alpha01")    // Compose month view
+    // Everything except UI: conversion, names and formatting, panchangam, festivals.
+    implementation("io.github.anjalymsajeev:kollavarsham-festivals:0.1.0-alpha01")
 }
 ```
+
+If you need less (or more), use one of these instead:
+
+| You need | Add | It brings |
+|---|---|---|
+| Date conversion only | `kollavarsham-core` | core, astronomy |
+| + Malayalam names, numerals, formatting | `kollavarsham-locale` | + core |
+| + nakshatra, tithi, sunrise/sunset | `kollavarsham-panchangam` | + locale, core |
+| + festivals | `kollavarsham-festivals` | + panchangam, locale, core |
+| Compose month calendar (Android) | `kollavarsham-android` *in addition* | + locale, core, Compose |
+
+An Android app that wants everything, including the calendar view, needs just two lines:
+`kollavarsham-festivals` and `kollavarsham-android`.
 
 `0.1.0-alpha01` is an early preview: the API may change before 1.0. It becomes available once the first release has been published (see [RELEASING.md](RELEASING.md)).
 
