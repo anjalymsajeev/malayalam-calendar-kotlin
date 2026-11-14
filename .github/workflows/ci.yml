@@ -20,3 +20,6 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       # build = compile + unit tests + apiCheck + core dependency guard
       - run: ./gradlew build --no-daemon
+      # Exit criterion of Sprint 3: an external project consumes the published artifacts.
+      - run: ./gradlew publishToMavenLocal --no-daemon
+      - run: ./gradlew -p samples/jvm-consumer run --no-daemon
