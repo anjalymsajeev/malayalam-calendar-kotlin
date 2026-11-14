@@ -1,4 +1,6 @@
 # Almanac corrections bundled with the SDK (ADR-0005).
-# Every row must cite tier-1 evidence (see VALIDATION_STRATEGY.md). Rows are added in Sprint 2,
-# once the astronomical engine exists and a disagreement with a cited almanac is confirmed.
+# Every row cites evidence (VALIDATION_STRATEGY.md). A row is added when a cited observation
+# disagrees with the computation, or when the computed sankranti is within 1 minute of the
+# cut-off (inside the engine's uncertainty) and an observation fixes the date.
 me_year,month,first_day,source_citation
+1197,Thulam,2021-10-17,"Margin ~0 min. Sabarimala melsanthi draw (held on Thulam 1) on 2021-10-17: https://www.deccanherald.com/india/keralas-sabarimala-temple-gets-new-main-priest-1041398.html"

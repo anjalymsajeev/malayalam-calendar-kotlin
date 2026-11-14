@@ -50,8 +50,7 @@ class OverridesTest {
     }
 
     @Test fun `bundled overrides file loads and every row needs a citation`() {
-        // Empty until Sprint 2 adds cited corrections.
-        assertTrue(VerifiedOverrides.bundled.isEmpty())
+        assertEquals(LocalDate.of(2021, 10, 17), VerifiedOverrides.bundled[key])
         val parsed = VerifiedOverrides.parse(
             "# comment\nme_year,month,first_day,source_citation\n1197,Thulam,2021-10-17,Example almanac p. 3\n",
         )

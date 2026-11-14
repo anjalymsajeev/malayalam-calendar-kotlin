@@ -1,0 +1,27 @@
+# Observed Kerala month starts (VALIDATION_STRATEGY.md). Retrieved 2026-11-14.
+# Tiers:
+#   T1-search: a dated news report found by web search; the summary was read but the page itself
+#              could not be opened from the build environment (network allowlist). Re-verify by reading the page.
+#   T3-reported: listed as observed in the Dart kollavarsham package tests (MIT); primary source still to be found.
+me_year,month,first_day,tier,source,notes
+1192,Chingam,2016-08-17,T1-search,https://www.ibtimes.co.in/chingam-1-2016-significance-messages-wishes-greetings-be-shared-malayalam-new-year-photos-690077,"""Chingam 1 is celebrated on August 17 in 2016"""
+1195,Chingam,2019-08-17,T1-search,https://english.madhyamam.com/kerala/2019/aug/17/new-year-begins-kerala-chingam-1,New Year reported on 2019-08-17
+1199,Chingam,2023-08-17,T1-search,https://newsable.asianetnews.com/amp/lifestyle/chingam-1-today-kerala-embraces-malayalam-new-year-2023-significance-and-celebrations-anr-eai-rzihef,Borderline month (margin about +1 min); decides between Lahiri conventions
+1200,Chingam,2024-08-17,T1-search,https://newsable.asianetnews.com/kerala-news/chingam-1-kerala-rings-in-malayalam-new-year-2024-anr-sic8dp,
+1201,Chingam,2025-08-17,T1-search,https://www.latestly.com/lifestyle/festivals-events/chingam-1-2025-date-in-kerala-when-is-malayalam-new-year-know-cultural-significance-and-traditions-around-kollavarsham-1201-celebration-7019978.html,"""On August 17, 2025, the calendar turns to Kollavarsham 1201"""
+1202,Chingam,2026-08-17,T1-search,https://www.sanatanjyoti.com/sanatan-gyan-hub/festival/malayalam-new-year-chingam-1-significance-traditions-and-cultural-importance-384,Published before the date
+1196,Thulam,2020-10-17,T1-search,https://www.tribuneindia.com/news/nation/sabarimala-temple-opens-for-devotees-after-6-months-157093/amp,"Devotees admitted from Saturday, ""the first day of Thulam"""
+1197,Thulam,2021-10-17,T1-search,https://www.deccanherald.com/india/keralas-sabarimala-temple-gets-new-main-priest-1041398.html,Melsanthi draw (held on Thulam 1) on Sunday 2021-10-17; margin about 0 min; also verified override
+1201,Thulam,2025-10-18,T1-search,https://www.onmanorama.com/news/kerala/2025/10/18/sabarimala-new-melsanthi-malikappuram.html,"Melsanthi draw ""on the first day of Thulam"", 2025-10-18"
+1202,Thulam,2026-10-18,T1-search,https://telanganatoday.com/sankaran-namboothiri-selected-as-sabarimala-temples-new-melsanthi,"Melsanthi draw on Thulam 1, Sunday 2026-10-18"
+1197,Vrischikam,2021-11-16,T1-search,https://www.onmanorama.com/news/kerala/2021/11/14/sabarimala-ayyappa-temple-open-for-mandala-pooja.html,Mandala season (from Vrischikam 1) began 2021-11-16; borderline month
+1198,Chingam,2022-08-17,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1198,Medam,2023-04-15,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1199,Medam,2024-04-14,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1200,Medam,2025-04-14,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1199,Makaram,2024-01-15,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1200,Makaram,2025-01-14,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1200,Vrischikam,2024-11-16,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1199,Karkidakam,2024-07-16,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1200,Karkidakam,2025-07-17,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
+1201,Kanni,2025-09-17,T3-reported,https://github.com/midhunarmid/kollavarsham/blob/main/packages/kollavarsham/test/conversion_test.dart,
