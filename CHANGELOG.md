@@ -5,6 +5,18 @@ All notable changes are documented here. The project follows [Semantic Versionin
 
 ## [Unreleased]
 
+## [0.1.0-alpha01]: first preview (ready; pending the first Maven Central publication)
+
+Release notes: [docs/release-notes/0.1.0-alpha01.md](docs/release-notes/0.1.0-alpha01.md).
+
+### Changed (Sprint 7: release readiness)
+- JVM default methods (`-Xjvm-default=all`) in all modules; `ObservanceProvider` no longer has `DefaultImpls`.
+- The constructors of `InvalidMalayalamDateException` and `DateOutOfSupportedRangeException` are now internal.
+- API stability policy for 0.x (ADR-0007).
+
+### Added
+- `PerformanceTest` with published measurements; release notes; dependency and size analysis.
+
 ### Added (Sprint 6: Android SDK and sample app)
 - `kollavarsham-android` (AAR, minSdk 21): `MonthGrid` (plain Kotlin) and the `KollavarshamMonthView` Composable; published to Maven Central with the other modules.
 - `sample-app`: monthly calendar, date selection, daily details (Malayalam date, nakshatra, tithi, sunrise/sunset, festivals), Malayalam/English, offline (no INTERNET permission).

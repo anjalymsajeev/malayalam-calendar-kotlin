@@ -2,7 +2,8 @@
 
 A Kotlin SDK for the Malayalam (Kollavarsham) calendar. It converts between Gregorian and Malayalam dates following the Kerala solar-month rule, works offline, is thread-safe, and keeps Android out of the core.
 
-> **Status: Sprint 6 (Android SDK and sample app) complete. Not yet released (`0.1.0-alpha01`).**
+> **Status: `0.1.0-alpha01` is ready for release** (the first preview; see the [release notes](docs/release-notes/0.1.0-alpha01.md)).
+> It appears on Maven Central once the first release has been published ([RELEASING.md](RELEASING.md)).
 > Real conversion works for 1900–2100. It reproduces all 21 cited month starts in the reference dataset;
 > see [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) for what that evidence does and doesn't prove.
 
@@ -91,7 +92,9 @@ dependencies {
 | [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) | How accuracy is established |
 | [SPRINT_PLAN.md](SPRINT_PLAN.md) | Sprints, risks, open questions, reports |
 | [docs/sprint-0/](docs/sprint-0/) | Library research and API proposal |
-| [docs/adr/](docs/adr/) | Architecture decision records |
+| [docs/adr/](docs/adr/) | Architecture decision records (0007: API stability policy) |
+| [docs/release-notes/](docs/release-notes/) | Release notes |
+| [RELEASING.md](RELEASING.md) | How to publish to Maven Central |
 | [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) | |
 
 ## Contributors

@@ -8,8 +8,8 @@
 | 3 | Localisation and developer experience | Done |
 | 4 | Panchangam foundation | Done |
 | 5 | Festival and observance engine | Done |
-| 6 | Android SDK and sample app | **Done, pending review** (report below) |
-| 7 | Production release (1.0.0) | Planned |
+| 6 | Android SDK and sample app | Done |
+| 7 | Production release | **Done: release-ready; publication waits on the owner's Maven Central setup** (report below) |
 
 Rule: no sprint starts while the previous sprint has a failing acceptance criterion or an unanswered blocking question.
 
@@ -318,3 +318,26 @@ The full build is green: JVM tests, Android unit tests, Android lint, ktlint and
 - Documentation pass.
 - Release notes.
 - The first Maven Central release (after the owner's one-time setup).
+
+---
+
+## Sprint 7 completion report
+
+**Objective:** a production-ready SDK release.
+
+| ID | Story | Acceptance criteria | Result |
+|---|---|---|---|
+| S7-1 | API stability review | All `.api` baselines reviewed; risky shapes fixed before the first publish | **Met.** JVM default methods; internal exception constructors; Compose artifacts excluded; policy in ADR-0007 |
+| S7-2 | Performance testing | Measured and guarded against regressions | **Met.** `PerformanceTest` (warm conversion 0.3 µs, `Panchangam.day` 0.25 ms, festivals 25 ms per year, cache ~350 KB) |
+| S7-3 | Dependency analysis | Runtime dependencies and sizes documented | **Met.** JVM modules depend only on kotlin-stdlib; jars 34–68 KB; AAR 24 KB |
+| S7-4 | Documentation and release notes | Complete docs; release notes | **Met.** `docs/release-notes/0.1.0-alpha01.md`, CHANGELOG, README, RELEASING |
+| S7-5 | Maven Central publishing | Signed artifacts with sources, javadoc and full POMs | **Met (ready).** Verified locally, including signatures with a throwaway key |
+| S7-6 | Versioning and release automation | Tag-triggered, gated release | **Met.** `release.yml`: tag/version check, build, signed upload, manual Publish in the Central Portal |
+| S7-7 | **Exit: production-ready release** | Published SDK | **Waiting on the owner:** the one-time Central Portal, token, GPG and secrets setup (RELEASING.md); then tag `v0.1.0-alpha01` |
+
+**Why `0.1.0-alpha01` and not `1.0.0`:** the 1.0 criteria in ADR-0007 aren't met yet. The main gap is the almanac evidence (21 of 60 cited month starts). Shipping a preview is honest about this, and still lets apps use the SDK today.
+
+### After this release
+- Expand the cited almanac dataset; replace ΔT with an IERS-based table; build a JPL DE440 reference.
+- Compose UI tests; the data class review before 1.0.
+- The Malayalam Calendar app, a separate product and repository, built on the published SDK.
