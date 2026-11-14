@@ -247,6 +247,24 @@ day.tithis
 
 Nakshatra and tithi are geocentric, so they are the same instant everywhere; only sunrise and sunset depend on the location.
 
+### Nakshatra occurrences (birth-star days)
+
+```kotlin
+val occurrences = Panchangam.create().nakshatraOccurrences(
+    nakshatra = Nakshatra.Atham,
+    from = LocalDate.of(2027, 1, 1),
+    to = LocalDate.of(2027, 12, 31),
+    convention = StarDayConvention.SUNRISE,     // or SIX_NAZHIKA (2 h 24 min after sunrise)
+)
+occurrences.forEach { o ->
+    o.span.start; o.span.end                    // when the star begins and ends
+    o.observanceDate                            // the birth-star day under the convention (null if none)
+    o.observanceDates                           // usually one day; two if a long span covers two checkpoints
+}
+```
+
+Each year has 13 or 14 occurrences of each nakshatra. Spans that overlap the range edges are included.
+
 ### Provider interfaces
 
 `NakshatraProvider`, `TithiProvider` and `SunTimesProvider` let observance rules be tested with fakes, and let an alternative calculation be supplied later.

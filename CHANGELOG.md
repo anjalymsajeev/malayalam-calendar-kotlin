@@ -5,6 +5,13 @@ All notable changes are documented here. The project follows [Semantic Versionin
 
 ## [Unreleased]
 
+## [0.2.0-alpha01]: unreleased
+
+### Added
+- `Panchangam.nakshatraOccurrences(nakshatra, from, to, convention)`: every occurrence of a nakshatra in a
+  date range, found by walking actual spans (never a fixed 27-day cycle), with start and end times and observance days.
+- `NakshatraOccurrence` and `StarDayConvention` (`SUNRISE`, `SIX_NAZHIKA`) for birth-star (Pirannal) days.
+
 ## [0.1.0-alpha01]: first preview (ready; pending the first Maven Central publication)
 
 Release notes: [docs/release-notes/0.1.0-alpha01.md](docs/release-notes/0.1.0-alpha01.md).

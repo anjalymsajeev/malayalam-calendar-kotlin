@@ -139,6 +139,13 @@ val star = panchangam.nakshatraSpan(Instant.now())
 println("${star.value} until ${star.end.atZone(KollavarshamCalendar.INDIAN_STANDARD_TIME)}")
 ```
 
+To list a person's birth-star days, for example every Atham in 2027:
+
+```kotlin
+panchangam.nakshatraOccurrences(Nakshatra.Atham, LocalDate.of(2027, 1, 1), LocalDate.of(2027, 12, 31))
+    .forEach { println("${it.observanceDate}  (${it.span.start} – ${it.span.end})") }
+```
+
 Elements are read at sunrise, following the Kerala convention. `today.nakshatras` and `today.tithis` list every span until the next sunrise, so you can apply other rules yourself.
 
 ## 9. Festivals and observances
