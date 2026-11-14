@@ -1,3 +1,62 @@
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/AstroTime {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/astronomy/AstroTime;
+	public final fun instantOf (D)Ljava/time/Instant;
+	public final fun julianDayUt (Ljava/time/Instant;)D
+	public final fun julianEphemerisDay (D)D
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa : java/lang/Enum {
+	public static final field LahiriDrikCalibrated Lio/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa;
+	public static final field LahiriTrue Lio/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa;
+	public static final field T_1956 D
+	public final fun degrees (DD)D
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa;
+	public static fun values ()[Lio/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/DeltaT {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/astronomy/DeltaT;
+	public final fun getSupportedYears ()Lkotlin/ranges/ClosedFloatingPointRange;
+	public final fun seconds (D)D
+}
+
 public abstract interface annotation class io/github/anjalymsajeev/kollavarsham/astronomy/KollavarshamAstronomyApi : java/lang/annotation/Annotation {
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/Sankranti {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/astronomy/Sankranti;
+	public final fun find (ILjava/time/Instant;Lio/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa;)Ljava/time/Instant;
+	public final fun siderealLongitude (Ljava/time/Instant;Lio/github/anjalymsajeev/kollavarsham/astronomy/Ayanamsa;)D
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/SolarPosition {
+	public fun <init> (DDDDD)V
+	public final fun component1 ()D
+	public final fun component2 ()D
+	public final fun component3 ()D
+	public final fun component4 ()D
+	public final fun component5 ()D
+	public final fun copy (DDDDD)Lio/github/anjalymsajeev/kollavarsham/astronomy/SolarPosition;
+	public static synthetic fun copy$default (Lio/github/anjalymsajeev/kollavarsham/astronomy/SolarPosition;DDDDDILjava/lang/Object;)Lio/github/anjalymsajeev/kollavarsham/astronomy/SolarPosition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDeclination ()D
+	public final fun getLatitude ()D
+	public final fun getLongitude ()D
+	public final fun getNutationInLongitude ()D
+	public final fun getRightAscension ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/Sun {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/astronomy/Sun;
+	public final fun position (D)Lio/github/anjalymsajeev/kollavarsham/astronomy/SolarPosition;
+}
+
+public final class io/github/anjalymsajeev/kollavarsham/astronomy/SunriseSunset {
+	public static final field INSTANCE Lio/github/anjalymsajeev/kollavarsham/astronomy/SunriseSunset;
+	public final fun sunrise (Ljava/time/LocalDate;DDLjava/time/ZoneId;)Ljava/time/Instant;
+	public final fun sunset (Ljava/time/LocalDate;DDLjava/time/ZoneId;)Ljava/time/Instant;
 }
 
