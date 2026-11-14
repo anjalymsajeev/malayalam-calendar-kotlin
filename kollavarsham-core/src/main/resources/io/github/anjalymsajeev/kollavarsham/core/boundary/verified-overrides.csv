@@ -1,0 +1,4 @@
+# Almanac corrections bundled with the SDK (ADR-0005).
+# Every row must cite tier-1 evidence (see VALIDATION_STRATEGY.md). Rows are added in Sprint 2,
+# once the astronomical engine exists and a disagreement with a cited almanac is confirmed.
+me_year,month,first_day,source_citation
