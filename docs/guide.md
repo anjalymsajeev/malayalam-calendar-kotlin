@@ -122,6 +122,25 @@ f.format(d, calendar)                                             // "Shani, 28 
 
 Formatters are immutable and thread-safe, so keep them in a field and reuse them.
 
-## 8. A complete example
+## 8. Panchangam: nakshatra, tithi, sunrise
+
+Add `io.github.anjalymsajeev:kollavarsham-panchangam`.
+
+```kotlin
+val panchangam = Panchangam.create()            // or Panchangam.create(PanchangamLocation(GeoLocation(...)))
+val today = panchangam.day(LocalDate.now(KollavarshamCalendar.INDIAN_STANDARD_TIME))
+
+println("Sunrise ${today.sunrise}, sunset ${today.sunset}")
+println("Star: ${today.nakshatraAtSunrise.displayName(CalendarLocale.MALAYALAM)}")
+println("Tithi: ${today.tithiAtSunrise.paksha.displayName(CalendarLocale.MALAYALAM)} ${today.tithiAtSunrise.displayName(CalendarLocale.MALAYALAM)}")
+
+// When does the current star end?
+val star = panchangam.nakshatraSpan(Instant.now())
+println("${star.value} until ${star.end.atZone(KollavarshamCalendar.INDIAN_STANDARD_TIME)}")
+```
+
+Elements are read at sunrise, following the Kerala convention. `today.nakshatras` and `today.tithis` list every span until the next sunrise, so you can apply other rules yourself.
+
+## 9. A complete example
 
 [`samples/jvm-consumer`](../samples/jvm-consumer) is a standalone project that consumes the published artifacts. It prints a formatted date and the months of a year.

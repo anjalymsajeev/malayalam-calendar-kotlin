@@ -2,7 +2,7 @@
 
 A Kotlin SDK for the Malayalam (Kollavarsham) calendar. It converts between Gregorian and Malayalam dates following the Kerala solar-month rule, works offline, is thread-safe, and keeps Android out of the core.
 
-> **Status: Sprint 3 (localisation and developer experience) complete. Not yet released (`0.1.0-alpha01`).**
+> **Status: Sprint 4 (Panchangam foundation) complete. Not yet released (`0.1.0-alpha01`).**
 > Real conversion works for 1900–2100. It reproduces all 21 cited month starts in the reference dataset;
 > see [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) for what that evidence does and doesn't prove.
 
@@ -19,6 +19,11 @@ MalayalamMonth.Vrischikam.displayName(CalendarLocale.MALAYALAM)            // "�
 
 LocalDate.of(2026, 11, 14).toMalayalamDate()                               // 1202 Thulam 28
     .format(CalendarLocale.MALAYALAM, DateStyle.FULL, calendar)            // "കൊല്ലവർഷം 1202 തുലാം 28, ശനി"
+
+// Panchangam (kollavarsham-panchangam)
+val day = Panchangam.create().day(LocalDate.of(2025, 9, 5))
+day.nakshatraAtSunrise.displayName(CalendarLocale.MALAYALAM)              // "തിരുവോണം" (Onam)
+day.tithiAtSunrise                                                         // Tithi at sunrise
 
 // Months where almanacs may disagree by a day:
 val b = calendar.monthBoundary(1199, MalayalamMonth.Chingam)
@@ -39,6 +44,7 @@ b.cutoffMargin                                                             // ~ 
 | `kollavarsham-astronomy` | Sun (VSOP87), ΔT, sunrise and sankranti (opt-in API) |
 | `kollavarsham-core` | Models, conversion, validation, arithmetic |
 | `kollavarsham-locale` | Names, ISO 15919 transliteration, Malayalam numerals, date formatting |
+| `kollavarsham-panchangam` | Nakshatra, tithi, sunrise/sunset for a location; daily panchangam |
 
 ## Requirements
 

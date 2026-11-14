@@ -26,6 +26,7 @@ graph TD
   festivals --> core
   panchangam[kollavarsham-panchangam<br/>Sprint 4] --> astronomy
   panchangam --> core
+  panchangam --> locale
   locale[kollavarsham-locale<br/>names, formatting, numerals] --> core
   core[kollavarsham-core<br/>models, conversion, boundaries, arithmetic] --> astronomy
   astronomy[kollavarsham-astronomy<br/>Sun, ΔT, sunrise; Moon in Sprint 4]
@@ -36,7 +37,7 @@ graph TD
 | `kollavarsham-astronomy` | Kotlin/JVM | stdlib | Apparent solar longitude, nutation, ΔT, Lahiri ayanamsa, sankranti search, sunrise and sunset. Moon in Sprint 4. | Sprint 1 (skeleton), Sprint 2 (implemented) |
 | `kollavarsham-core` | Kotlin/JVM | astronomy | Domain models, `KollavarshamCalendar`, month boundaries, conversion, validation, date arithmetic, override mechanism | Sprint 1 |
 | `kollavarsham-locale` | Kotlin/JVM | core | Malayalam and English names, transliteration, Malayalam numerals, `format()` APIs | Sprint 1 (names), Sprint 3 (formatting) |
-| `kollavarsham-panchangam` | Kotlin/JVM | core, astronomy | Nakshatra, tithi, sunrise and sunset providers, location configuration | Sprint 4 |
+| `kollavarsham-panchangam` | Kotlin/JVM | core, locale, astronomy | Nakshatra, tithi, sunrise and sunset providers, location configuration; names of its own types | Sprint 4 |
 | `kollavarsham-festivals` | Kotlin/JVM | core, panchangam | Festival definitions as **rules**, never as dates; observance providers | Sprint 5 |
 | `kollavarsham-android` | Android library | core, locale | Optional Compose month grid and date picker. No business logic in Composables. | Sprint 6 |
 | `sample-app` | Android app | all | Demo only; not published | Sprint 6 |

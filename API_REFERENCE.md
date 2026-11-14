@@ -5,15 +5,16 @@ Version: `0.1.0-alpha01` (unreleased) · Package root: `io.github.anjalymsajeev.
 The authoritative list of public declarations is in `*/api/*.api`, which CI checks on every build. This page
 explains the API with examples.
 
-> **Sprint 3 status:** conversion, names, transliteration, numerals and formatting are complete. For a task-oriented
-> introduction, see [docs/guide.md](docs/guide.md).
+> **Sprint 4 status:** conversion, localisation and the panchangam foundation (nakshatra, tithi, sunrise/sunset) are
+> complete. For a task-oriented introduction, see [docs/guide.md](docs/guide.md).
 
 ## Artifacts
 
 | Artifact | Contents |
 |---|---|
 | `io.github.anjalymsajeev:kollavarsham-core` | Models, conversion, validation, arithmetic |
-| `io.github.anjalymsajeev:kollavarsham-locale` | Display names (Sprint 1), formatting and numerals (Sprint 3) |
+| `io.github.anjalymsajeev:kollavarsham-locale` | Names, transliteration, numerals, formatting |
+| `io.github.anjalymsajeev:kollavarsham-panchangam` | Nakshatra, tithi, sunrise/sunset, daily panchangam |
 | `io.github.anjalymsajeev:kollavarsham-astronomy` | Astronomy, opt-in (`@KollavarshamAstronomyApi`), used by core |
 
 The artifacts are not yet published.
@@ -217,3 +218,57 @@ f.needsWeekday   // true if the pattern contains EEEE
 | `'text'` | literal; `''` is a quote |
 
 Other ASCII letters are rejected, so typos fail fast instead of printing garbage.
+
+## kollavarsham-panchangam
+
+### `Panchangam` and `PanchangamLocation`
+
+Immutable and thread-safe. Implements `NakshatraProvider`, `TithiProvider` and `SunTimesProvider`.
+
+```kotlin
+val panchangam = Panchangam.create()                                       // Thiruvananthapuram, IST
+val kozhikode = Panchangam.create(PanchangamLocation(GeoLocation(11.2588, 75.7804, "Kozhikode")))
+
+panchangam.nakshatraAt(Instant.now())                                      // Nakshatra
+panchangam.nakshatraSpan(Instant.now())                                    // Span(value, start, end)
+panchangam.tithiAt(Instant.now())                                          // Tithi
+panchangam.tithiSpan(Instant.now())
+panchangam.sunrise(LocalDate.of(2026, 11, 14))                             // Instant?
+panchangam.sunset(LocalDate.of(2026, 11, 14))
+
+val day: PanchangamDay = panchangam.day(LocalDate.of(2025, 9, 5))
+day.sunrise; day.sunset; day.nextSunrise
+day.nakshatraAtSunrise                                                     // Thiruvonam
+day.tithiAtSunrise
+day.nakshatras                                                             // all spans sunrise -> next sunrise
+day.tithis
+```
+
+Nakshatra and tithi are geocentric, so they are the same instant everywhere; only sunrise and sunset depend on the location.
+
+### Provider interfaces
+
+`NakshatraProvider`, `TithiProvider` and `SunTimesProvider` let observance rules be tested with fakes, and let an alternative calculation be supplied later.
+
+```kotlin
+val fixed = object : NakshatraProvider {
+    override fun nakshatraAt(instant: Instant) = Nakshatra.Thiruvonam
+    override fun nakshatraSpan(instant: Instant) = Span(Nakshatra.Thiruvonam, instant.minusSeconds(3600), instant.plusSeconds(3600))
+}
+```
+
+### `Nakshatra`, `Tithi`, `Paksha`, `Span`
+
+```kotlin
+Nakshatra.of(22)                                             // Thiruvonam
+Nakshatra.Thiruvonam.next                                    // Avittam
+Nakshatra.Thiruvonam.displayName(CalendarLocale.MALAYALAM)   // "തിരുവോണം"
+
+Tithi.of(26)                                                 // KrishnaEkadashi
+Tithi.KrishnaEkadashi.paksha                                 // Krishna
+Tithi.KrishnaEkadashi.dayOfPaksha                            // 11
+Tithi.KrishnaEkadashi.displayName(CalendarLocale.MALAYALAM)  // "ഏകാദശി"
+Paksha.Krishna.displayName(CalendarLocale.MALAYALAM)         // "കൃഷ്ണപക്ഷം"
+
+span.contains(instant)                                       // start inclusive, end exclusive
+```

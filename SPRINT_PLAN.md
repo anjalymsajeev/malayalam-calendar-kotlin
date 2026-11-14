@@ -5,8 +5,8 @@
 | 0 | Discovery and architecture | Done (approved 2026-11-14) |
 | 1 | Core SDK foundation | Done |
 | 2 | Calendar conversion engine and reference dataset | Done (evidence shortfall carried over) |
-| 3 | Localisation and developer experience | **Done, pending review** (report below) |
-| 4 | Panchangam foundation | Planned |
+| 3 | Localisation and developer experience | Done |
+| 4 | Panchangam foundation | **Done, pending review** (report below) |
 | 5 | Festival and observance engine | Planned |
 | 6 | Android SDK and sample app | Planned |
 | 7 | Production release (1.0.0) | Planned |
@@ -230,3 +230,33 @@ The build is green: **60 tests**, ktlint, `apiCheck`, and the dependency guard.
 - Nakshatra and tithi providers.
 - A sunrise-based day model and location configuration.
 - All of it in `kollavarsham-panchangam`, separate from conversion.
+
+---
+
+## Sprint 4 completion report
+
+**Objective:** independently testable panchangam calculation providers, kept separate from calendar conversion.
+
+| ID | Story | Acceptance criteria | Result |
+|---|---|---|---|
+| S4-1 | Lunar position | Meeus 47.a within 1″ | **Met.** Within 1″ longitude, 0.5″ latitude, 0.5 km distance |
+| S4-2 | Nakshatra provider | Value and span; boundaries agree with an independent reference | **Met.** 2,888 boundaries: mean −0.7 s, standard deviation 4.7 s |
+| S4-3 | Tithi provider | Value, paksha and span; new and full moons correct | **Met.** 2,969 boundaries: standard deviation 7.1 s around a documented −40.5 s convention offset; 4 published new and full moons within 2 min |
+| S4-4 | Sunrise and sunset provider with location | Configurable location and zone; polar handling | **Met.** `PanchangamLocation`, `SunTimesProvider`; no sunrise gives an explicit error |
+| S4-5 | Separation | No panchangam code in core; conversion unaffected | **Met.** New module; core is unchanged |
+| S4-6 | Exit: independently testable providers | Provider interfaces that can be faked | **Met.** `NakshatraProvider`, `TithiProvider`, `SunTimesProvider` |
+
+Also: Thiruvonam is the sunrise nakshatra on Onam 2023, 2024 and 2025. The build is green: **71 tests**, ktlint, `apiCheck`.
+
+**Found and fixed during the sprint:**
+- The first boundary solver needed about 5 minutes for the reference comparison; it was replaced with a secant method and now takes seconds.
+- Probing exactly at a span's end could return the same span again; this is now handled explicitly and tested.
+
+**Not done (by design):** day-naming rules (6 nazhika, kshaya and vriddhi tithi). These are observance rules for Sprint 5.
+
+### Next: Sprint 5 (festival and observance engine)
+
+- Festival definitions as rules, never as fixed dates.
+- Kerala festivals (Onam, Vishu, Thiruvathira, Sivaratri, …) built on the calendar and the panchangam providers.
+- A configurable data source for fixed-date observances.
+- Each rule validated against cited dates.
